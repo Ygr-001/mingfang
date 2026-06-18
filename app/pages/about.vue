@@ -13,49 +13,15 @@
       </div>
     </section>
 
-    <!-- 公司简介 -->
-    <section class="py-16 md:py-24">
-      <div class="container-custom">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8">公司简介</h2>
-            <div class="space-y-4 text-gray-600 leading-relaxed text-sm md:text-base">
-              <p>明芳线业始创于<strong class="text-gray-900">1997年</strong>，是一家专业纱线生产制造商。公司生产的各种涤纶线、尼龙线、包芯线、全棉线、特品线、弹力线、绣花线、蓬松线、防水线、抗菌线以及再生纱线等，深受广大客户好评。</p>
-              <p>公司全资收购广东肇庆鸿基织业有限公司，成立<strong class="text-gray-900">明芳产业园</strong>。集生产、染色、运输于一体，月产量达<strong class="text-gray-900">100吨以上</strong>。</p>
-              <p>产品已通过<strong class="text-gray-900">瑞士TESTEX AG</strong>认证，获得<strong class="text-gray-900">OEKO-TEX婴儿一级认证</strong>。</p>
-            </div>
-            <div class="grid grid-cols-2 gap-3 mt-8">
-              <div class="flex items-center gap-3 p-3 bg-blue-50 rounded-xl">
-                <span class="text-xl">🏭</span>
-                <div><div class="font-bold text-gray-900 text-sm">总资产7000万</div><div class="text-[10px] text-gray-500">2001年建立</div></div>
-              </div>
-              <div class="flex items-center gap-3 p-3 bg-blue-50 rounded-xl">
-                <span class="text-xl">📦</span>
-                <div><div class="font-bold text-gray-900 text-sm">年产能1000吨</div><div class="text-[10px] text-gray-500">1000万个缝纫线</div></div>
-              </div>
-              <div class="flex items-center gap-3 p-3 bg-blue-50 rounded-xl">
-                <span class="text-xl">🌿</span>
-                <div><div class="font-bold text-gray-900 text-sm">排污许可证</div><div class="text-[10px] text-gray-500">印染生产一体</div></div>
-              </div>
-              <div class="flex items-center gap-3 p-3 bg-blue-50 rounded-xl">
-                <span class="text-xl">🏆</span>
-                <div><div class="font-bold text-gray-900 text-sm">婴儿一级认证</div><div class="text-[10px] text-gray-500">OEKO-TEX 100</div></div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <img src="/images/webp/company/profile.webp" alt="明芳线业" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-lg" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 发展历程 -->
-    <section id="history" class="py-16 md:py-24 bg-gray-50">
-      <div class="container-custom max-w-3xl">
+    <!-- 发展历程 - 横图 -->
+    <section id="history" class="py-16 md:py-24">
+      <div class="container-custom max-w-5xl">
         <h2 class="section-title">发展历程</h2>
         <p class="section-subtitle text-sm md:text-base">从1997年至今，明芳线业不断发展壮大</p>
-        <div class="mt-10">
+        <div class="mt-10 mb-10">
+          <img src="/images/webp/company/history.webp" alt="发展历程" class="w-full rounded-2xl shadow-lg" />
+        </div>
+        <div class="max-w-2xl mx-auto">
           <div v-for="(item, idx) in timeline" :key="item.year" class="flex gap-5">
             <div class="flex-shrink-0 w-16 text-right pt-0.5">
               <span class="text-xl font-bold text-primary">{{ item.year }}</span>
@@ -71,17 +37,64 @@
       </div>
     </section>
 
-    <!-- 工厂与车间 -->
-    <section id="workshop" class="py-16 md:py-24">
+    <!-- 工厂与车间 - 新图片+文字描述 -->
+    <section id="workshop" class="py-16 md:py-24 bg-gray-50">
       <div class="container-custom max-w-5xl">
-        <h2 class="section-title">工厂与车间</h2>
-        <p class="section-subtitle text-sm md:text-base">集生产、染色、检测于一体</p>
-        <div class="grid sm:grid-cols-2 gap-6 mt-10">
-          <div v-for="item in workshopItems" :key="item.title" class="bg-white rounded-2xl overflow-hidden shadow-sm">
-            <img :src="item.img" :alt="item.title" class="w-full aspect-[3/2] object-cover" />
-            <div class="p-5">
-              <h3 class="font-bold text-gray-900 mb-1">{{ item.title }}</h3>
-              <p class="text-sm text-gray-500 leading-relaxed">{{ item.desc }}</p>
+        <h2 class="section-title">染坊与实验室</h2>
+        <p class="section-subtitle text-sm md:text-base">先进的染整设备与完善的检测体系，保障每一根纱线的品质</p>
+        <div class="grid gap-8 mt-10">
+          <!-- 生产车间 -->
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+            <img src="/images/webp/lab/lab3.webp" alt="生产车间" class="w-full object-cover" style="max-height:350px" />
+            <div class="p-6 md:p-8">
+              <h3 class="font-bold text-xl text-gray-900 mb-2">生产车间</h3>
+              <p class="text-sm text-gray-500 leading-relaxed">
+                引进新型自动化高速线机，生产效率提高了三倍。车间占地20余亩，配备完整的自动化生产线，从纺纱到成品一站式完成。
+              </p>
+            </div>
+          </div>
+
+          <!-- 染坊 -->
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+            <img src="/images/webp/lab/lab5.webp" alt="染坊" class="w-full object-cover" style="max-height:350px" />
+            <div class="p-6 md:p-8">
+              <h3 class="font-bold text-xl text-gray-900 mb-2">染坊</h3>
+              <p class="text-sm text-gray-500 leading-relaxed">
+                拥有设备1KG-500KG不同型号染色机40余台，满足大量生产需求。从打样到大货染色，快速响应客户颜色需求，确保每批次颜色一致性。
+              </p>
+            </div>
+          </div>
+
+          <!-- 实验检测 -->
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+            <img src="/images/webp/lab/lab1.webp" alt="实验检测" class="w-full object-cover" style="max-height:300px" />
+            <div class="p-6 md:p-8">
+              <h3 class="font-bold text-xl text-gray-900 mb-2">实验检测</h3>
+              <p class="text-sm text-gray-500 leading-relaxed">
+                所有客户的每款产品都会进行抽样严格检测。配备专业检测设备，对纱线的拉力、粗细度、色牢度等关键指标进行全面测试，确保品质达标。
+              </p>
+            </div>
+          </div>
+
+          <!-- 质检实验室 -->
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+            <img src="/images/webp/lab/lab2.webp" alt="质检室" class="w-full object-cover" style="max-height:300px" />
+            <div class="p-6 md:p-8">
+              <h3 class="font-bold text-xl text-gray-900 mb-2">质检室</h3>
+              <p class="text-sm text-gray-500 leading-relaxed">
+                质检室拥有拉力、粗细度、色牢度等一系列检测设备来保证产品质量。每批产品出厂前都经过严格质检，不合格产品绝不流入市场。
+              </p>
+            </div>
+          </div>
+
+          <!-- 样板间 -->
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+            <img src="/images/webp/lab/lab4.webp" alt="样板间" class="w-full object-cover" style="max-height:300px" />
+            <div class="p-6 md:p-8">
+              <h3 class="font-bold text-xl text-gray-900 mb-2">样板间</h3>
+              <p class="text-sm text-gray-500 leading-relaxed">
+                拥有自己的小样板房，为了适应客户需求来为其配置与布料匹配颜色的纱线。快速打样，精准调色，为客户提供最匹配的纱线解决方案。
+              </p>
             </div>
           </div>
         </div>
@@ -89,7 +102,7 @@
     </section>
 
     <!-- 认证 -->
-    <section id="certs" class="py-16 md:py-24 bg-gray-50">
+    <section id="certs" class="py-16 md:py-24">
       <div class="container-custom max-w-6xl">
         <h2 class="section-title">安全认证</h2>
         <p class="section-subtitle text-sm md:text-base">通过多项国际权威检测认证，产品符合婴儿一级安全标准</p>
@@ -117,13 +130,6 @@ const timeline = [
   { year: '2003', title: '更名为"深圳市明芳内衣辅料有限公司"', desc: '公司正式更名，业务范围进一步扩大' },
   { year: '2011', title: '入驻政府环保工业园', desc: '入驻政府环保工业园，实现环保升级' },
   { year: '2022', title: '全资收购广东肇庆鸿基织业', desc: '成立"明芳产业园"，集生产、染色、运输于一体' },
-]
-
-const workshopItems = [
-  { title: '明芳产业园', desc: '位于广东肇庆高要小湘，独立排污许可证，集生产、染色、运输于一体', img: '/images/webp/pic2.webp' },
-  { title: '自动化生产车间', desc: '引进新型自动化高速线机，生产效率提高三倍', img: '/images/webp/company/workshop1.webp' },
-  { title: '染坊', desc: '拥有1KG-500KG不同型号染色机40余台，满足大量生产需求', img: '/images/webp/company/dyehouse.webp' },
-  { title: '质检实验室', desc: '拉力、粗细度、色牢度等全套检测设备，配置样板间匹配布料颜色', img: '/images/webp/lab/laboratory.webp' },
 ]
 
 const certItems = [
