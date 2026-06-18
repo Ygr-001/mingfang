@@ -7,7 +7,7 @@
         <div>
           <p class="text-blue-200 text-sm tracking-[0.3em] mb-3 uppercase">Products</p>
           <h1 class="text-3xl md:text-5xl font-bold mb-2">产品中心</h1>
-          <p class="text-base text-gray-200">10大产品系列 · 点击查看详情</p>
+          <p class="text-base text-gray-200">10大产品系列 · 点击图片查看大图 · 点击卡片查看详情</p>
         </div>
       </div>
     </section>
@@ -16,25 +16,28 @@
       <div class="container-custom">
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div v-for="p in products" :key="p.name"
-            class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer group"
-            @click="selectedProduct = p">
-            <!-- 图片 -->
-            <div class="aspect-[3/2] overflow-hidden relative">
+            class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group">
+            <!-- 图片 - 点击查看大图 -->
+            <div class="aspect-[3/2] overflow-hidden relative cursor-pointer" @click.stop="openImage(p.img)">
               <img :src="p.img" :alt="p.name" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
                 <span class="text-white text-xs font-medium flex items-center gap-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
-                  查看详情
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                  查看大图
                 </span>
               </div>
             </div>
-            <!-- 内容 -->
-            <div class="p-5 flex-1 flex flex-col">
+            <!-- 内容 - 点击查看名片 -->
+            <div class="p-5 flex-1 flex flex-col cursor-pointer" @click="selectedProduct = p">
               <h3 class="font-bold text-gray-900 text-sm md:text-base">{{ p.name }}</h3>
               <p class="text-[11px] text-primary font-medium mt-1 mb-2">{{ p.en }}</p>
               <p class="text-gray-500 text-xs leading-relaxed flex-1 line-clamp-2">{{ p.desc }}</p>
               <div class="flex flex-wrap gap-1 mt-3">
                 <span v-for="f in p.features" :key="f" class="px-2 py-0.5 bg-blue-50 text-primary-600 text-[10px] rounded-full">{{ f }}</span>
+              </div>
+              <div class="mt-3 pt-3 border-t border-gray-100 flex items-center justify-between">
+                <span class="text-[10px] text-gray-400">点击查看详情</span>
+                <svg class="w-4 h-4 text-gray-300 group-hover:text-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
               </div>
             </div>
           </div>
@@ -42,27 +45,39 @@
       </div>
     </section>
 
-    <!-- 产品详情弹窗 -->
+    <!-- 大图弹窗 -->
+    <Transition name="fade">
+      <div v-if="lightboxImg" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4" @click="lightboxImg = ''">
+        <img :src="lightboxImg" alt="产品大图" class="max-w-[90vw] max-h-[90vh] object-contain rounded-lg" />
+        <button class="absolute top-4 right-4 text-white text-3xl hover:text-gray-300">×</button>
+      </div>
+    </Transition>
+
+    <!-- 产品名片弹窗（纯文字，无图片） -->
     <Transition name="fade">
       <div v-if="selectedProduct" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4" @click.self="selectedProduct = null">
-        <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
-          <!-- 弹窗头部图片 -->
-          <div class="relative">
-            <img :src="selectedProduct.img" :alt="selectedProduct.name" class="w-full aspect-[3/2] object-cover" />
-            <button class="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 transition-colors" @click="selectedProduct = null">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+        <div class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
+          <!-- 关闭按钮 -->
+          <div class="flex items-center justify-between p-5 border-b border-gray-100">
+            <div>
+              <h2 class="text-lg font-bold text-gray-900">{{ selectedProduct.name }}</h2>
+              <p class="text-xs text-primary font-medium mt-0.5">{{ selectedProduct.en }}</p>
+            </div>
+            <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors flex-shrink-0" @click="selectedProduct = null">
+              <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
             </button>
           </div>
-          <!-- 弹窗内容 -->
-          <div class="p-6 md:p-8">
-            <h2 class="text-xl md:text-2xl font-bold text-gray-900">{{ selectedProduct.name }}</h2>
-            <p class="text-sm text-primary font-medium mt-1 mb-4">{{ selectedProduct.en }}</p>
 
-            <p class="text-gray-600 text-sm leading-relaxed mb-6">{{ selectedProduct.desc }}</p>
+          <!-- 内容 -->
+          <div class="p-5 space-y-5">
+            <!-- 描述 -->
+            <p class="text-gray-600 text-sm leading-relaxed">{{ selectedProduct.desc }}</p>
 
             <!-- 特点 -->
-            <div class="mb-6">
-              <h3 class="text-sm font-bold text-gray-900 mb-3">产品特点</h3>
+            <div>
+              <h3 class="text-xs font-bold text-gray-900 mb-2 flex items-center gap-1.5">
+                <span class="w-1 h-3 rounded bg-primary"></span>产品特点
+              </h3>
               <div class="flex flex-wrap gap-2">
                 <span v-for="f in selectedProduct.features" :key="f"
                   class="px-3 py-1.5 bg-blue-50 text-primary-700 text-xs rounded-lg font-medium">{{ f }}</span>
@@ -70,8 +85,10 @@
             </div>
 
             <!-- 技术规格 -->
-            <div v-if="selectedProduct.specs && selectedProduct.specs.length" class="mb-6">
-              <h3 class="text-sm font-bold text-gray-900 mb-3">技术规格</h3>
+            <div v-if="selectedProduct.specs && selectedProduct.specs.length">
+              <h3 class="text-xs font-bold text-gray-900 mb-2 flex items-center gap-1.5">
+                <span class="w-1 h-3 rounded bg-primary"></span>技术规格
+              </h3>
               <div class="overflow-hidden rounded-lg border border-gray-200">
                 <table class="w-full text-xs">
                   <thead class="bg-gray-50">
@@ -89,8 +106,10 @@
             </div>
 
             <!-- 应用领域 -->
-            <div class="mb-6">
-              <h3 class="text-sm font-bold text-gray-900 mb-3">应用领域</h3>
+            <div>
+              <h3 class="text-xs font-bold text-gray-900 mb-2 flex items-center gap-1.5">
+                <span class="w-1 h-3 rounded bg-primary"></span>应用领域
+              </h3>
               <div class="flex flex-wrap gap-2">
                 <span v-for="a in selectedProduct.apps" :key="a"
                   class="px-3 py-1.5 bg-gray-100 text-gray-600 text-xs rounded-lg">{{ a }}</span>
@@ -104,7 +123,7 @@
             </div>
 
             <!-- CTA -->
-            <div class="mt-6 pt-6 border-t border-gray-100 flex items-center justify-between">
+            <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
               <p class="text-xs text-gray-400">对这款产品感兴趣？</p>
               <NuxtLink to="/contact" class="btn-primary text-sm px-5 py-2" @click="selectedProduct = null">咨询报价 →</NuxtLink>
             </div>
@@ -116,7 +135,12 @@
 </template>
 
 <script setup lang="ts">
+const lightboxImg = ref('')
 const selectedProduct = ref<any>(null)
+
+function openImage(img: string) {
+  lightboxImg.value = img
+}
 
 const products = [
   {
