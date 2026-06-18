@@ -17,11 +17,11 @@
             <div class="absolute inset-0 bg-black/35" />
           </div>
           <div class="absolute inset-0 z-10 flex items-center justify-center text-center text-white px-4">
-            <div class="max-w-3xl">
-              <p class="text-blue-200 text-sm tracking-[0.3em] mb-4 uppercase">{{ slide.tag }}</p>
-              <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-5 leading-tight">{{ slide.title }}</h2>
-              <p class="text-base md:text-lg text-gray-200 mb-8 max-w-xl mx-auto">{{ slide.description }}</p>
-              <NuxtLink :to="slide.link" class="btn-primary text-base md:text-lg">
+            <div class="max-w-2xl">
+              <p class="text-blue-200 text-xs md:text-sm tracking-[0.2em] md:tracking-[0.3em] mb-3 md:mb-4 uppercase">{{ slide.tag }}</p>
+              <h2 class="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-5 leading-tight">{{ slide.title }}</h2>
+              <p class="text-sm md:text-base text-gray-200 mb-6 md:mb-8 mx-auto">{{ slide.description }}</p>
+              <NuxtLink :to="slide.link" class="btn-primary text-sm md:text-base">
                 {{ slide.btnText }}
               </NuxtLink>
             </div>
@@ -194,7 +194,7 @@ const heroSlides = [
   {
     tag: 'PRODUCTS',
     title: '品种齐全 · 应用广泛',
-    description: '涤纶线、尼龙线、包芯线、全棉线、弹力线、绣花线、可再生纱线',
+    description: '14大产品系列，覆盖服装、玩具、运动器材、汽车内饰等行业',
     btnText: '了解产品',
     link: '/products',
     img: '/images/webp/company/cover2.webp',

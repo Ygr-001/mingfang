@@ -142,6 +142,14 @@ function openImage(img: string) {
   lightboxImg.value = img
 }
 
+const timeline = [
+  { year: '1997', title: '创立明芳线厂', desc: '明芳线厂正式成立，开启专业纱线制造之路' },
+  { year: '2002', title: '获得OEKO-TEX认证', desc: '通过瑞士OEKO-TEX标准100认证，品质获国际认可' },
+  { year: '2003', title: '更名为深圳市明芳内衣辅料有限公司', desc: '公司正式更名，业务范围进一步扩大' },
+  { year: '2011', title: '入驻政府环保工业园', desc: '入驻政府环保工业园，实现环保升级' },
+  { year: '2022', title: '全资收购广东肇庆鸿基织业', desc: '成立明芳产业园，集生产、染色、运输于一体' },
+]
+
 const certItems = [
   { name: 'OEKO-TEX Standard 100', desc: '瑞士TESTEX AG认证，婴儿一级安全标准', img: '/images/webp/certs/cert1.webp' },
   { name: 'GRS 全球回收标准', desc: 'SGS-CSTC颁发，可再生纱线认证', img: '/images/webp/certs/cert2.webp' },
