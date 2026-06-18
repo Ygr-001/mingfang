@@ -13,31 +13,18 @@
       </div>
     </section>
 
-    <!-- 发展历程 - 横图 -->
+    <!-- 发展历程 - 横向图 -->
     <section id="history" class="py-16 md:py-24">
       <div class="container-custom max-w-5xl">
         <h2 class="section-title">发展历程</h2>
         <p class="section-subtitle text-sm md:text-base">从1997年至今，明芳线业不断发展壮大</p>
-        <div class="mt-10 mb-10">
+        <div class="mt-10">
           <img src="/images/webp/company/history.webp" alt="发展历程" class="w-full rounded-2xl shadow-lg" />
-        </div>
-        <div class="max-w-2xl mx-auto">
-          <div v-for="(item, idx) in timeline" :key="item.year" class="flex gap-5">
-            <div class="flex-shrink-0 w-16 text-right pt-0.5">
-              <span class="text-xl font-bold text-primary">{{ item.year }}</span>
-            </div>
-            <div class="flex-grow pb-8 pl-5 border-l-2 relative"
-              :class="idx === timeline.length - 1 ? 'border-transparent' : 'border-blue-100'">
-              <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-primary border-2 border-white shadow"></div>
-              <h3 class="font-bold text-gray-900 text-sm md:text-base">{{ item.title }}</h3>
-              <p class="text-gray-500 text-xs md:text-sm mt-1">{{ item.desc }}</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- 工厂与车间 - 新图片+文字描述 -->
+    <!-- 染坊与实验室 -->
     <section id="workshop" class="py-16 md:py-24 bg-gray-50">
       <div class="container-custom max-w-5xl">
         <h2 class="section-title">染坊与实验室</h2>
@@ -45,7 +32,7 @@
         <div class="grid gap-8 mt-10">
           <!-- 生产车间 -->
           <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
-            <img src="/images/webp/lab/lab3.webp" alt="生产车间" class="w-full object-cover" style="max-height:350px" />
+            <img src="/images/webp/lab/lab3.webp" alt="生产车间" class="w-full object-cover" style="max-height:400px" />
             <div class="p-6 md:p-8">
               <h3 class="font-bold text-xl text-gray-900 mb-2">生产车间</h3>
               <p class="text-sm text-gray-500 leading-relaxed">
@@ -56,7 +43,7 @@
 
           <!-- 染坊 -->
           <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
-            <img src="/images/webp/lab/lab5.webp" alt="染坊" class="w-full object-cover" style="max-height:350px" />
+            <img src="/images/webp/lab/lab5.webp" alt="染坊" class="w-full object-cover" style="max-height:400px" />
             <div class="p-6 md:p-8">
               <h3 class="font-bold text-xl text-gray-900 mb-2">染坊</h3>
               <p class="text-sm text-gray-500 leading-relaxed">
@@ -67,7 +54,7 @@
 
           <!-- 实验检测 -->
           <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
-            <img src="/images/webp/lab/lab1.webp" alt="实验检测" class="w-full object-cover" style="max-height:300px" />
+            <img src="/images/webp/lab/lab1.webp" alt="实验检测" class="w-full object-cover" style="max-height:350px" />
             <div class="p-6 md:p-8">
               <h3 class="font-bold text-xl text-gray-900 mb-2">实验检测</h3>
               <p class="text-sm text-gray-500 leading-relaxed">
@@ -76,9 +63,9 @@
             </div>
           </div>
 
-          <!-- 质检实验室 -->
+          <!-- 质检室 -->
           <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
-            <img src="/images/webp/lab/lab2.webp" alt="质检室" class="w-full object-cover" style="max-height:300px" />
+            <img src="/images/webp/lab/lab2.webp" alt="质检室" class="w-full object-cover" style="max-height:400px" />
             <div class="p-6 md:p-8">
               <h3 class="font-bold text-xl text-gray-900 mb-2">质检室</h3>
               <p class="text-sm text-gray-500 leading-relaxed">
@@ -89,7 +76,7 @@
 
           <!-- 样板间 -->
           <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
-            <img src="/images/webp/lab/lab4.webp" alt="样板间" class="w-full object-cover" style="max-height:300px" />
+            <img src="/images/webp/lab/lab4.webp" alt="样板间" class="w-full object-cover" style="max-height:400px" />
             <div class="p-6 md:p-8">
               <h3 class="font-bold text-xl text-gray-900 mb-2">样板间</h3>
               <p class="text-sm text-gray-500 leading-relaxed">
@@ -101,16 +88,17 @@
       </div>
     </section>
 
-    <!-- 认证 -->
+    <!-- 安全认证 - 点击查看大图 -->
     <section id="certs" class="py-16 md:py-24">
       <div class="container-custom max-w-6xl">
         <h2 class="section-title">安全认证</h2>
-        <p class="section-subtitle text-sm md:text-base">通过多项国际权威检测认证，产品符合婴儿一级安全标准</p>
+        <p class="section-subtitle text-sm md:text-base">通过多项国际权威检测认证，产品符合婴儿一级安全标准（点击图片查看大图）</p>
         <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-10">
           <div v-for="cert in certItems" :key="cert.name"
-            class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+            class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow cursor-pointer"
+            @click="openImage(cert.img)">
             <div class="aspect-[3/4] overflow-hidden bg-gray-50">
-              <img :src="cert.img" :alt="cert.name" class="w-full h-full object-contain" />
+              <img :src="cert.img" :alt="cert.name" class="w-full h-full object-contain hover:scale-105 transition-transform duration-300" />
             </div>
             <div class="p-4 text-center">
               <h3 class="font-bold text-gray-900 text-sm">{{ cert.name }}</h3>
@@ -119,18 +107,22 @@
           </div>
         </div>
       </div>
+
+      <!-- 大图弹窗 -->
+      <div v-if="lightboxImg" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/80" @click="lightboxImg = ''">
+        <img :src="lightboxImg" alt="证书大图" class="max-w-[90vw] max-h-[90vh] object-contain rounded-lg" />
+        <button class="absolute top-4 right-4 text-white text-3xl hover:text-gray-300">×</button>
+      </div>
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
-const timeline = [
-  { year: '1997', title: '创立"明芳线厂"', desc: '明芳线厂正式成立，开启专业纱线制造之路' },
-  { year: '2002', title: '获得瑞士OEKO-TEX认证', desc: '通过瑞士OEKO-TEX标准100认证，品质获得国际认可' },
-  { year: '2003', title: '更名为"深圳市明芳内衣辅料有限公司"', desc: '公司正式更名，业务范围进一步扩大' },
-  { year: '2011', title: '入驻政府环保工业园', desc: '入驻政府环保工业园，实现环保升级' },
-  { year: '2022', title: '全资收购广东肇庆鸿基织业', desc: '成立"明芳产业园"，集生产、染色、运输于一体' },
-]
+const lightboxImg = ref('')
+
+function openImage(img: string) {
+  lightboxImg.value = img
+}
 
 const certItems = [
   { name: 'OEKO-TEX Standard 100', desc: '瑞士TESTEX AG认证，婴儿一级安全标准', img: '/images/webp/certs/cert1.webp' },

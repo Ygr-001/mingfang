@@ -140,48 +140,43 @@
       </div>
     </section>
 
-    <!-- 品质保障 -->
+    <!-- 品质保障 - 缩略图跳转 -->
     <section class="py-16 md:py-24 bg-gray-50">
       <div class="container-custom max-w-5xl">
         <h2 class="section-title">品质保障</h2>
         <p class="section-subtitle text-sm md:text-base">每款产品严格抽样检测，完整品质控制体系</p>
-        <div class="grid sm:grid-cols-2 gap-6 mt-10">
-          <div v-for="item in qualityItems" :key="item.title"
-            class="bg-white rounded-2xl overflow-hidden shadow-sm flex flex-col sm:flex-row">
-            <div class="sm:w-2/5 flex-shrink-0">
-              <img :src="item.img" :alt="item.title" class="w-full h-48 sm:h-full object-cover" />
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+          <NuxtLink v-for="item in qualityItems" :key="item.title" to="/about#workshop"
+            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 group">
+            <div class="aspect-[3/2] overflow-hidden">
+              <img :src="item.img" :alt="item.title" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
             </div>
-            <div class="p-5 flex-1">
-              <h3 class="font-bold text-gray-900 mb-2">{{ item.title }}</h3>
-              <p class="text-sm text-gray-500 leading-relaxed mb-3">{{ item.desc }}</p>
-              <div class="flex flex-wrap gap-1.5">
-                <span v-for="d in item.details" :key="d"
-                  class="inline-flex items-center gap-1 px-2 py-0.5 bg-blue-50 text-primary-700 text-[11px] rounded-full">
-                  <span class="w-1 h-1 rounded-full bg-primary"></span>{{ d }}
-                </span>
-              </div>
+            <div class="p-3 text-center">
+              <h3 class="font-bold text-gray-900 text-sm">{{ item.title }}</h3>
             </div>
-          </div>
+          </NuxtLink>
+        </div>
+        <div class="text-center mt-8">
+          <NuxtLink to="/about#workshop" class="text-primary text-sm font-medium hover:underline">查看详情 →</NuxtLink>
         </div>
       </div>
     </section>
 
-    <!-- 安全认证 -->
+    <!-- 安全认证 - 缩略图跳转 -->
     <section class="py-16 md:py-24">
-      <div class="container-custom max-w-6xl">
+      <div class="container-custom max-w-5xl">
         <h2 class="section-title">安全认证</h2>
         <p class="section-subtitle text-sm md:text-base">通过多项国际权威检测认证，产品符合婴儿一级安全标准</p>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-10">
-          <div v-for="cert in certs" :key="cert.name"
-            class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+        <div class="grid grid-cols-3 md:grid-cols-6 gap-4 mt-10">
+          <NuxtLink v-for="cert in certs" :key="cert.name" to="/about#certs"
+            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 group">
             <div class="aspect-[3/4] overflow-hidden bg-gray-50">
-              <img :src="cert.img" :alt="cert.name" class="w-full h-full object-contain" />
+              <img :src="cert.img" :alt="cert.name" class="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-300" />
             </div>
-            <div class="p-4 text-center">
-              <h3 class="font-bold text-gray-900 text-sm">{{ cert.name }}</h3>
-              <p class="text-xs text-gray-500 mt-1">{{ cert.desc }}</p>
-            </div>
-          </div>
+          </NuxtLink>
+        </div>
+        <div class="text-center mt-8">
+          <NuxtLink to="/about#certs" class="text-primary text-sm font-medium hover:underline">查看全部认证 →</NuxtLink>
         </div>
       </div>
     </section>
