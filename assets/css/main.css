@@ -11,36 +11,99 @@
   }
 }
 
-@layer components {
-  .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 bg-primary text-white font-medium rounded-lg
-           hover:bg-primary-700 transition-colors duration-200;
-  }
-  .btn-outline {
-    @apply inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary font-medium rounded-lg
-           hover:bg-primary hover:text-white transition-colors duration-200;
-  }
+/* === 自定义组件类 - 直接写CSS，不依赖 @apply === */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background-color: #1a56db;
+  color: #fff;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+}
+.btn-primary:hover {
+  background-color: #1e40af;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #1a56db;
+  color: #1a56db;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+.btn-outline:hover {
+  background-color: #1a56db;
+  color: #fff;
+}
+
+.section-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #111827;
+  text-align: center;
+}
+@media (min-width: 768px) {
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-gray-900 text-center;
+    font-size: 2.25rem;
   }
-  .section-subtitle {
-    @apply text-gray-500 text-center mt-4 max-w-2xl mx-auto;
-  }
+}
+
+.section-subtitle {
+  color: #6b7280;
+  text-align: center;
+  margin-top: 1rem;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-custom {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 640px) {
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
-  /* 统一图片容器：3:2 宽高比 + 裁剪填充 */
-  .img-frame {
-    @apply w-full aspect-[3/2] object-cover;
+}
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
-  /* 卡片图片：带圆角 */
-  .img-card {
-    @apply w-full aspect-[3/2] object-cover rounded-xl;
-  }
-  /* Banner 全屏覆盖 */
-  .img-banner {
-    @apply absolute inset-0 w-full h-full object-cover;
-  }
+}
+
+.img-frame {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.img-card {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
+.img-banner {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Swiper custom styles */

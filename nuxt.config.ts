@@ -5,6 +5,8 @@ export default defineNuxtConfig({
 
   modules: ['@nuxtjs/tailwindcss', 'nuxt-swiper'],
 
+  css: ['~~/assets/css/main.css'],
+
   app: {
     head: {
       title: '明芳线业 - 专业纱线生产制造商 | MING FANG',
@@ -20,8 +22,6 @@ export default defineNuxtConfig({
   },
 
   tailwindcss: {
-    cssPath: ['~/assets/css/main.css', { injectPosition: 'first' }],
-    configPath: 'tailwind.config',
     viewer: false,
   },
 })
