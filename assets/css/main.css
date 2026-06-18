@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply text-gray-800 antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-primary text-white font-medium rounded-lg
+           hover:bg-primary-700 transition-colors duration-200;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary font-medium rounded-lg
+           hover:bg-primary hover:text-white transition-colors duration-200;
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-gray-900 text-center;
+  }
+  .section-subtitle {
+    @apply text-gray-500 text-center mt-4 max-w-2xl mx-auto;
+  }
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  /* 统一图片容器：3:2 宽高比 + 裁剪填充 */
+  .img-frame {
+    @apply w-full aspect-[3/2] object-cover;
+  }
+  /* 卡片图片：带圆角 */
+  .img-card {
+    @apply w-full aspect-[3/2] object-cover rounded-xl;
+  }
+  /* Banner 全屏覆盖 */
+  .img-banner {
+    @apply absolute inset-0 w-full h-full object-cover;
+  }
+}
+
+/* Swiper custom styles */
+.swiper-pagination-bullet-active {
+  background-color: #1a56db !important;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: #1a56db !important;
+}
