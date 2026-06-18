@@ -7,7 +7,7 @@
         <div>
           <p class="text-blue-200 text-sm tracking-[0.3em] mb-3 uppercase">Products</p>
           <h1 class="text-3xl md:text-5xl font-bold mb-2">产品中心</h1>
-          <p class="text-base text-gray-200">10大产品系列 · 品种齐全 · 应用广泛</p>
+          <p class="text-base text-gray-200">10大产品系列 · 点击查看详情</p>
         </div>
       </div>
     </section>
@@ -16,22 +16,25 @@
       <div class="container-custom">
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div v-for="p in products" :key="p.name"
-            class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow flex flex-col">
-            <div class="aspect-[3/2] overflow-hidden cursor-pointer" @click="openImage(p.img)">
-              <img :src="p.img" :alt="p.name" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer group"
+            @click="selectedProduct = p">
+            <!-- 图片 -->
+            <div class="aspect-[3/2] overflow-hidden relative">
+              <img :src="p.img" :alt="p.name" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                <span class="text-white text-xs font-medium flex items-center gap-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                  查看详情
+                </span>
+              </div>
             </div>
+            <!-- 内容 -->
             <div class="p-5 flex-1 flex flex-col">
               <h3 class="font-bold text-gray-900 text-sm md:text-base">{{ p.name }}</h3>
               <p class="text-[11px] text-primary font-medium mt-1 mb-2">{{ p.en }}</p>
-              <p class="text-gray-500 text-xs leading-relaxed flex-1">{{ p.desc }}</p>
+              <p class="text-gray-500 text-xs leading-relaxed flex-1 line-clamp-2">{{ p.desc }}</p>
               <div class="flex flex-wrap gap-1 mt-3">
                 <span v-for="f in p.features" :key="f" class="px-2 py-0.5 bg-blue-50 text-primary-600 text-[10px] rounded-full">{{ f }}</span>
-              </div>
-              <div class="border-t border-gray-100 mt-3 pt-3">
-                <p class="text-[10px] text-gray-400 mb-1.5">应用领域</p>
-                <div class="flex flex-wrap gap-1">
-                  <span v-for="a in p.apps" :key="a" class="px-1.5 py-0.5 bg-gray-100 text-gray-500 text-[10px] rounded">{{ a }}</span>
-                </div>
               </div>
             </div>
           </div>
@@ -39,78 +42,183 @@
       </div>
     </section>
 
-    <!-- 大图弹窗 -->
-    <div v-if="lightboxImg" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4" @click="lightboxImg = ''">
-      <img :src="lightboxImg" alt="产品大图" class="max-w-[90vw] max-h-[90vh] object-contain rounded-lg" />
-      <button class="absolute top-4 right-4 text-white text-3xl hover:text-gray-300">×</button>
-    </div>
+    <!-- 产品详情弹窗 -->
+    <Transition name="fade">
+      <div v-if="selectedProduct" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4" @click.self="selectedProduct = null">
+        <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+          <!-- 弹窗头部图片 -->
+          <div class="relative">
+            <img :src="selectedProduct.img" :alt="selectedProduct.name" class="w-full aspect-[3/2] object-cover" />
+            <button class="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 transition-colors" @click="selectedProduct = null">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+          </div>
+          <!-- 弹窗内容 -->
+          <div class="p-6 md:p-8">
+            <h2 class="text-xl md:text-2xl font-bold text-gray-900">{{ selectedProduct.name }}</h2>
+            <p class="text-sm text-primary font-medium mt-1 mb-4">{{ selectedProduct.en }}</p>
+
+            <p class="text-gray-600 text-sm leading-relaxed mb-6">{{ selectedProduct.desc }}</p>
+
+            <!-- 特点 -->
+            <div class="mb-6">
+              <h3 class="text-sm font-bold text-gray-900 mb-3">产品特点</h3>
+              <div class="flex flex-wrap gap-2">
+                <span v-for="f in selectedProduct.features" :key="f"
+                  class="px-3 py-1.5 bg-blue-50 text-primary-700 text-xs rounded-lg font-medium">{{ f }}</span>
+              </div>
+            </div>
+
+            <!-- 技术规格 -->
+            <div v-if="selectedProduct.specs && selectedProduct.specs.length" class="mb-6">
+              <h3 class="text-sm font-bold text-gray-900 mb-3">技术规格</h3>
+              <div class="overflow-hidden rounded-lg border border-gray-200">
+                <table class="w-full text-xs">
+                  <thead class="bg-gray-50">
+                    <tr>
+                      <th class="px-3 py-2 text-left text-gray-500 font-medium" v-for="h in selectedProduct.specHeaders" :key="h">{{ h }}</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-100">
+                    <tr v-for="row in selectedProduct.specs" :key="row[0]" class="hover:bg-gray-50">
+                      <td class="px-3 py-2 text-gray-700" v-for="(cell, i) in row" :key="i">{{ cell }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 应用领域 -->
+            <div class="mb-6">
+              <h3 class="text-sm font-bold text-gray-900 mb-3">应用领域</h3>
+              <div class="flex flex-wrap gap-2">
+                <span v-for="a in selectedProduct.apps" :key="a"
+                  class="px-3 py-1.5 bg-gray-100 text-gray-600 text-xs rounded-lg">{{ a }}</span>
+              </div>
+            </div>
+
+            <!-- 认证 -->
+            <div v-if="selectedProduct.cert" class="flex items-center gap-2 p-3 bg-green-50 rounded-lg">
+              <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+              <span class="text-sm text-green-700 font-medium">{{ selectedProduct.cert }}</span>
+            </div>
+
+            <!-- CTA -->
+            <div class="mt-6 pt-6 border-t border-gray-100 flex items-center justify-between">
+              <p class="text-xs text-gray-400">对这款产品感兴趣？</p>
+              <NuxtLink to="/contact" class="btn-primary text-sm px-5 py-2" @click="selectedProduct = null">咨询报价 →</NuxtLink>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Transition>
   </div>
 </template>
 
 <script setup lang="ts">
-const lightboxImg = ref('')
-function openImage(img: string) { lightboxImg.value = img }
+const selectedProduct = ref<any>(null)
 
 const products = [
   {
     name: '涤纶蓬松线', en: 'Textured Polyester', img: '/images/webp/products/prod01.webp',
-    desc: '覆盖效果佳、强力性好、手感柔软光滑、耐化学性强、颜色选择广泛。OEKO-TEX认证。',
-    features: ['覆盖佳', '手感柔软', '颜色广泛'],
-    apps: ['内衣', '泳衣', '针织品', '家纺', '童装'],
+    desc: '覆盖效果佳、强力性好、手感柔软光滑、耐化学性强、颜色选择广泛。适用于内衣、泳衣、针织品、家纺和童装。符合OEKO-TEX标准100认证。',
+    features: ['覆盖效果佳', '强力性好', '手感柔软', '耐化学性', '颜色选择广泛'],
+    apps: ['内衣', '泳衣', '女士内衣', '针织品', '家纺', '童装'],
+    cert: 'OEKO-TEX Standard 100 认证',
+    specHeaders: ['Tex No.', 'Ticket No.'],
+    specs: [['Tex 10', 'Ticket 220'], ['Tex 18', 'Ticket 160'], ['Tex 21', 'Ticket 140'], ['Tex 35', 'Ticket 80'], ['Tex 70', 'Ticket 60']],
   },
   {
     name: '涤纶包芯', en: 'Polyester Wrap', img: '/images/webp/products/prod02.webp',
-    desc: '绝佳的相对强度、耐磨性高、耐化学性。强力缝口外观美观、避免跳针、色牢度高。',
-    features: ['高强度', '耐磨', '色牢度高'],
-    apps: ['服装', '家纺', '皮革制品'],
+    desc: '绝佳的相对强度、耐磨性高、耐化学性。强力缝口外观美观、避免跳针、生产效率高。色牢度高、颜色选择广泛，适用于高速缝纫。',
+    features: ['绝佳强度', '耐磨性高', '缝口平滑', '避免跳针', '色牢度高'],
+    apps: ['服装', '家纺', '皮革制品', '工业缝纫'],
+    cert: '',
+    specHeaders: ['Tex No.', 'Ticket No.'],
+    specs: [['Tex 18', 'Ticket 180'], ['Tex 21', 'Ticket 150'], ['Tex 27', 'Ticket 120'], ['Tex 40', 'Ticket 80'], ['Tex 60', 'Ticket 40']],
   },
   {
     name: '绣花线', en: 'Embroidery Thread', img: '/images/webp/products/prod07.webp',
-    desc: '人造丝和涤纶绣花线，规格150D/2~75D/2。光泽极佳，颜色艳丽。OEKO-TEX认证。',
-    features: ['耐用度高', '光泽好', '颜色艳丽'],
-    apps: ['服装', '家纺', '工艺饰品', '鞋帽'],
+    desc: '人造丝绣花线和涤纶绣花线，常用规格150D/2、120D/2、108D/2、75D/2。拥有极佳的光泽以及车缝时用线顺畅的特点。颜色选择广泛，颜色艳丽。符合OEKO-TEX标准100认证。',
+    features: ['耐用度高', '良好光泽', '颜色艳丽', '用线顺畅'],
+    apps: ['服装', '家纺家居', '工艺饰品', '鞋帽'],
+    cert: 'OEKO-TEX Standard 100 认证',
+    specHeaders: ['规格', '常用规格'],
+    specs: [['150D/2', '人造丝绣花线'], ['120D/2', '最常用规格'], ['108D/2', '涤纶绣花线最常用'], ['75D/2', '精细绣花']],
   },
   {
     name: '高强涤纶长丝线', en: 'High Strength Polyester', img: '/images/webp/products/prod08.webp',
-    desc: '高强力聚酯化纤长丝制成，线质柔软光滑。耐热、耐光、耐损性强。OEKO-TEX认证。',
-    features: ['耐热', '耐光', '拉断强度大'],
+    desc: '高强力聚酯化纤长丝制成的缝纫线，也称高强线。线质柔软光滑，色牢度强。耐热、耐光、耐损性强，拉断强度大，弹性较小。符合OEKO-TEX标准100认证。',
+    features: ['耐热', '耐光', '耐损性强', '拉断强度大', '弹性较小'],
     apps: ['真皮箱包', '真皮鞋类', '家居用品'],
+    cert: 'OEKO-TEX Standard 100 认证',
+    specHeaders: ['Tex No.', '规格', '拉断强度', '断裂伸长率%'],
+    specs: [['Tex 16', '70D/3', '21.5', '11-20'], ['Tex 16', '120D/2', '21.5', '11-20'], ['Tex 35', '100D/3', '22.3', '11-20'], ['Tex 35', '120D/3', '22.3', '11-20']],
   },
   {
     name: '尼龙邦迪线', en: 'Nylon Bonded Thread', img: '/images/webp/products/prod09.webp',
-    desc: '生产效率高、强度高、耐磨性好、颜色选择广泛、光泽典雅。',
-    features: ['高强度', '耐磨', '光泽典雅'],
-    apps: ['鞋类', '箱包', '体育用品', '户外用品'],
+    desc: '生产效率高、强力缝口外观美观、耐磨性好、强度高。颜色选择广泛、光泽典雅。适用于鞋类、箱包、体育用品、户外用品和皮革制品等多种高强度场景。',
+    features: ['生产效率高', '高强度', '耐磨性好', '光泽典雅'],
+    apps: ['鞋类', '家具装饰', '箱包', '体育用品', '户外用品', '皮革制品'],
+    cert: '',
+    specHeaders: ['Tex No.', 'Ticket No.', '规格'],
+    specs: [['Tex 45', 'Ticket 60/3', '150D/3'], ['Tex 75', 'Ticket 40', '210D/3'], ['Tex 90', 'Ticket 30', '280D/3'], ['Tex 135', 'Ticket 20', '420D/3'], ['Tex 210', 'Ticket 15', '630D/3']],
   },
   {
     name: '汽车用品专用线', en: 'Automotive Thread', img: '/images/webp/products/prod10.webp',
-    desc: '高韧性、强力缝口美观、耐磨性好、延伸性好。OEKO-TEX认证。',
-    features: ['高韧性', '耐磨', '延伸性好'],
+    desc: '高韧性、强力缝口外观美观、耐磨性好。强力高、颜色选择广泛、光泽典雅。延伸性好，符合OEKO-TEX标准100认证。适用于安全气囊、汽车座椅和汽车中控。',
+    features: ['高韧性', '耐磨性好', '延伸性好', '光泽典雅'],
     apps: ['安全气囊', '汽车座椅', '汽车中控'],
+    cert: 'OEKO-TEX Standard 100 认证',
+    specHeaders: ['Tex No.', '规格', '拉断强度', '断裂伸长率%'],
+    specs: [['Tex 45', '210D/2', '22.9', '26-36'], ['Tex 70', '210D/3', '23.8', '25-35'], ['Tex 90', '280D/3', '25.6', '25-35'], ['Tex 135', '420D/3', '28.8', '25-34'], ['Tex 210', '630D/3', '211.2', '24-33']],
   },
   {
     name: '涤纶短纤', en: 'Staple Spun Polyester', img: '/images/webp/products/prod11.webp',
-    desc: '耐磨性高、强力缝口美观、缝口平滑、避免跳针、色牢度高。适用于高速缝纫。',
-    features: ['耐磨', '色牢度高', '高速缝纫'],
-    apps: ['服装', '家纺', '鞋帽'],
+    desc: '耐磨性高、强力缝口外观美观、耐化学性。缝口平滑、避免跳针、生产效率高。色牢度高，适用于高速缝纫。颜色选择广泛。',
+    features: ['耐磨性高', '色牢度高', '缝口平滑', '避免跳针', '高速缝纫'],
+    apps: ['各类服装', '家纺', '鞋帽', '工业用线'],
+    cert: '',
+    specHeaders: ['Tex No.', 'Ticket No.', '本地号'],
+    specs: [['Tex 18', 'Ticket 180', '602'], ['Tex 21', 'Ticket 140', '803'], ['Tex 27', 'Ticket 120', '603'], ['Tex 40', 'Ticket 80', '302'], ['Tex 60', 'Ticket 50', '604']],
   },
   {
     name: '高膨体涤纶线', en: 'High Bulk Textured Polyester', img: '/images/webp/products/prod12.webp',
-    desc: '覆盖效果佳、强力性、手感柔软、抗化学性强、颜色选择广泛。',
-    features: ['覆盖佳', '手感柔软', '抗化学性'],
-    apps: ['婴儿服饰', '内衣', '防晒衣'],
+    desc: '覆盖效果佳、强力性好、接缝轻。手感柔软、抗化学性强、颜色选择广泛。适用于婴儿服饰、内衣、防晒衣和女士内衣。',
+    features: ['覆盖效果佳', '强力性好', '手感柔软', '抗化学性'],
+    apps: ['婴儿服饰', '内衣', '防晒衣', '女士内衣'],
+    cert: '',
+    specHeaders: ['Tex No.', 'Ticket No.'],
+    specs: [['Tex 18', 'Ticket 160'], ['Tex 21', 'Ticket 140']],
   },
   {
     name: '高延伸长丝线', en: 'Eloflex', img: '/images/webp/products/prod14.webp',
-    desc: '延伸度高、润滑度高，适用于需要弹性和舒适度的产品。',
+    desc: '延伸度高、润滑度高，适用于需要弹性和舒适度的产品。适用于紧身裤、泳衣、女士内衣和运动服饰。',
     features: ['延伸度高', '润滑度高'],
-    apps: ['紧身裤', '泳衣', '运动服饰'],
+    apps: ['紧身裤', '泳衣', '女士内衣', '运动服饰'],
+    cert: '',
+    specHeaders: ['Tex No.', 'Ticket No.'],
+    specs: [['Tex 27', 'Ticket 120']],
   },
   {
     name: '尼龙弹力线', en: 'Elastic Nylon', img: '/images/webp/products/prod16.webp',
-    desc: '回弹力强、颜色选择广泛、光泽典雅。强力缝口、生产效率高。',
-    features: ['回弹力强', '光泽典雅'],
+    desc: '回弹力强、颜色选择广泛、光泽典雅。强力缝口外观美观、生产效率高、耐磨性好。适用于紧身裤、内衣和运动服饰。',
+    features: ['回弹力强', '光泽典雅', '强力缝口', '生产效率高'],
     apps: ['紧身裤', '内衣', '运动服饰'],
+    cert: '',
+    specHeaders: ['规格'],
+    specs: [['75D×2 / 150D'], ['100D×2 / 200D'], ['150D×2 / 300D'], ['150D×3 / 450D']],
   },
 ]
 </script>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
