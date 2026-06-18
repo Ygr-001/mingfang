@@ -1,22 +1,7 @@
 <template>
   <div>
     <!-- Hero Banner -->
-    <section class="relative h-[500px] md:h-[650px]">
-      <!-- SSR降级：Swiper未加载时显示第一张图 -->
-      <div class="absolute inset-0">
-        <img src="/images/webp/pic2.webp" alt="明芳线业" class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-black/35" />
-      </div>
-      <div class="absolute inset-0 z-10 flex items-center justify-center text-center text-white px-4">
-        <div class="max-w-2xl">
-          <p class="text-blue-200 text-xs md:text-sm tracking-[0.2em] md:tracking-[0.3em] mb-3 md:mb-4 uppercase">FACTORY STRENGTH</p>
-          <h2 class="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-5 leading-tight">明芳线业</h2>
-          <p class="text-sm md:text-base text-gray-200 mb-6 md:mb-8 mx-auto">明芳产业园，集纺纱、染色、检测、运输于一体，月产量100吨以上</p>
-          <NuxtLink to="/about" class="btn-primary text-sm md:text-base">了解我们</NuxtLink>
-        </div>
-      </div>
-
-      <!-- Swiper 轮播（客户端激活后覆盖降级内容） -->
+    <section class="relative h-[500px] md:h-[650px] overflow-hidden">
       <Swiper
         :modules="[SwiperAutoplay, SwiperPagination, SwiperNavigation]"
         :slides-per-view="1"
@@ -24,18 +9,15 @@
         :autoplay="{ delay: 5000, disableOnInteraction: false }"
         :pagination="{ clickable: true }"
         :navigation="true"
-        class="h-full absolute inset-0 z-20"
+        class="h-full"
       >
-        <SwiperSlide v-for="(slide, i) in heroSlides" :key="i">
-          <div class="absolute inset-0">
-            <img :src="slide.img" :alt="slide.title" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-black/35" />
-          </div>
-          <div class="absolute inset-0 z-10 flex items-center justify-center text-center text-white px-4">
-            <div class="max-w-2xl">
+        <SwiperSlide v-for="(slide, i) in heroSlides" :key="i" class="h-full">
+          <div class="relative h-full flex items-center justify-center text-center text-white px-4"
+            :style="{ backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(${slide.img})`, backgroundSize: 'cover', backgroundPosition: 'center' }">
+            <div class="max-w-2xl relative z-10">
               <p class="text-blue-200 text-xs md:text-sm tracking-[0.2em] md:tracking-[0.3em] mb-3 md:mb-4 uppercase">{{ slide.tag }}</p>
               <h2 class="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-5 leading-tight">{{ slide.title }}</h2>
-              <p class="text-sm md:text-base text-gray-200 mb-6 md:mb-8 mx-auto">{{ slide.description }}</p>
+              <p class="text-sm md:text-base text-gray-200 mb-6 md:mb-8">{{ slide.description }}</p>
               <NuxtLink :to="slide.link" class="btn-primary text-sm md:text-base">{{ slide.btnText }}</NuxtLink>
             </div>
           </div>
