@@ -13,27 +13,32 @@
       </div>
     </section>
 
-    <!-- 发展历程 - 前端代码绘制 -->
-    <section id="history" class="py-16 md:py-24">
+    <!-- 发展历程 -->
+    <section id="history" class="py-16 md:py-24 bg-gradient-to-b from-white to-blue-50/50">
       <div class="container-custom max-w-6xl">
         <h2 class="section-title">发展历程</h2>
         <p class="section-subtitle text-sm md:text-base">从1997年至今，明芳线业不断发展壮大</p>
 
         <!-- 横向时间线 -->
         <div class="mt-16 relative">
-          <!-- 底线 -->
-          <div class="absolute top-8 left-0 right-0 h-0.5 bg-blue-100 hidden md:block"></div>
+          <!-- 动态底线 -->
+          <div class="absolute top-9 left-0 right-0 h-1 bg-blue-100 rounded-full hidden md:block overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-primary to-primary-700 rounded-full timeline-line"></div>
+          </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-4">
-            <div v-for="(item, idx) in timeline" :key="item.year" class="relative text-center md:text-left">
+          <div class="grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-4">
+            <div v-for="(item, idx) in timeline" :key="item.year"
+              class="relative text-center md:text-left timeline-item"
+              :style="{ animationDelay: idx * 0.15 + 's' }">
               <!-- 圆点 -->
-              <div class="flex md:block items-center gap-3">
-                <div class="w-16 h-16 md:mx-auto rounded-full bg-gradient-to-br from-primary to-primary-700 flex items-center justify-center text-white font-bold text-sm flex-shrink-0 relative z-10 shadow-lg ring-4 ring-white">
+              <div class="flex md:block items-center gap-4">
+                <div class="w-18 h-18 md:w-20 md:h-20 md:mx-auto rounded-2xl md:rounded-full bg-gradient-to-br from-primary to-primary-700 flex items-center justify-center text-white font-bold text-base md:text-sm flex-shrink-0 relative z-10 shadow-lg ring-4 ring-white timeline-dot"
+                  :style="{ animationDelay: idx * 0.15 + 's' }">
                   {{ item.year }}
                 </div>
-                <div class="md:mt-4">
+                <div class="md:mt-5 text-left md:text-center">
                   <h3 class="font-bold text-gray-900 text-sm md:text-xs leading-snug">{{ item.title }}</h3>
-                  <p class="text-gray-500 text-xs mt-1 leading-relaxed">{{ item.desc }}</p>
+                  <p class="text-gray-500 text-xs mt-1.5 leading-relaxed">{{ item.desc }}</p>
                 </div>
               </div>
             </div>
@@ -159,3 +164,66 @@ const certItems = [
   { name: 'SGS 产品检测报告', desc: '2020年SGS检测，涵盖多款产品', img: '/images/webp/certs/cert6.webp' },
 ]
 </script>
+
+<style scoped>
+/* 时间线节点淡入上滑 */
+.timeline-item {
+  opacity: 0;
+  animation: dotFadeIn 0.6s ease forwards;
+}
+
+/* 圆点弹跳出现 */
+.timeline-dot {
+  animation: dotBounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  opacity: 0;
+}
+
+/* 底线展开动画 */
+.timeline-line {
+  width: 0;
+  animation: lineGrow 1.5s ease forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes dotFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dotBounce {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes lineGrow {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* w-18 不存在，用自定义 */
+.w-18 {
+  width: 4.5rem;
+}
+.h-18 {
+  height: 4.5rem;
+}
+</style>

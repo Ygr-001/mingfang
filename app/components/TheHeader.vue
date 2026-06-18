@@ -41,14 +41,14 @@
             产品中心
           </NuxtLink>
 
-          <NuxtLink to="/partners" class="px-3 py-2 text-sm text-gray-700 hover:text-primary transition-colors rounded-lg"
-            :class="{ 'text-primary font-medium': isActive('/partners') }">
-            合作客户
-          </NuxtLink>
-
           <NuxtLink to="/development" class="px-3 py-2 text-sm text-gray-700 hover:text-primary transition-colors rounded-lg"
             :class="{ 'text-primary font-medium': isActive('/development') }">
             可持续发展
+          </NuxtLink>
+
+          <NuxtLink to="/partners" class="px-3 py-2 text-sm text-gray-700 hover:text-primary transition-colors rounded-lg"
+            :class="{ 'text-primary font-medium': isActive('/partners') }">
+            合作客户
           </NuxtLink>
         </nav>
 
@@ -91,11 +91,11 @@
           <NuxtLink to="/products" class="block px-4 py-3 text-sm font-medium text-gray-700 hover:text-primary rounded-lg hover:bg-gray-50 transition-colors" @click="mobileMenuOpen = false">
             产品中心
           </NuxtLink>
-          <NuxtLink to="/partners" class="block px-4 py-3 text-sm font-medium text-gray-700 hover:text-primary rounded-lg hover:bg-gray-50 transition-colors" @click="mobileMenuOpen = false">
-            合作客户
-          </NuxtLink>
           <NuxtLink to="/development" class="block px-4 py-3 text-sm font-medium text-gray-700 hover:text-primary rounded-lg hover:bg-gray-50 transition-colors" @click="mobileMenuOpen = false">
             可持续发展
+          </NuxtLink>
+          <NuxtLink to="/partners" class="block px-4 py-3 text-sm font-medium text-gray-700 hover:text-primary rounded-lg hover:bg-gray-50 transition-colors" @click="mobileMenuOpen = false">
+            合作客户
           </NuxtLink>
           <NuxtLink to="/contact" class="block px-4 py-3 text-sm font-bold text-primary rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors" @click="mobileMenuOpen = false">
             联系我们
