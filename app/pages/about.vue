@@ -90,16 +90,19 @@
 
     <!-- 认证 -->
     <section id="certs" class="py-16 md:py-24 bg-gray-50">
-      <div class="container-custom max-w-4xl">
+      <div class="container-custom max-w-6xl">
         <h2 class="section-title">安全认证</h2>
-        <p class="section-subtitle text-sm md:text-base">通过多项国际权威认证</p>
-        <div class="grid sm:grid-cols-2 gap-8 mt-10">
-          <div v-for="cert in certItems" :key="cert.name" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm text-center border border-gray-100">
-            <div class="w-28 h-28 mx-auto mb-5 rounded-xl bg-gray-50 overflow-hidden">
-              <img :src="cert.img" :alt="cert.name" class="w-full h-full object-contain p-2" />
+        <p class="section-subtitle text-sm md:text-base">通过多项国际权威检测认证，产品符合婴儿一级安全标准</p>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-10">
+          <div v-for="cert in certItems" :key="cert.name"
+            class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+            <div class="aspect-[3/4] overflow-hidden bg-gray-50">
+              <img :src="cert.img" :alt="cert.name" class="w-full h-full object-contain" />
             </div>
-            <h3 class="font-bold text-gray-900 mb-2">{{ cert.name }}</h3>
-            <p class="text-sm text-gray-500">{{ cert.desc }}</p>
+            <div class="p-4 text-center">
+              <h3 class="font-bold text-gray-900 text-sm">{{ cert.name }}</h3>
+              <p class="text-xs text-gray-500 mt-1">{{ cert.desc }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -124,7 +127,11 @@ const workshopItems = [
 ]
 
 const certItems = [
-  { name: 'OEKO-TEX Standard 100', desc: '瑞士TESTEX AG认证，婴儿一级安全标准', img: '/images/webp/certs/oeko-tex.webp' },
-  { name: 'GRS & SGS 认证', desc: '全球回收标准认证，SGS-CSTC检测通过', img: '/images/webp/certs/sgs-grs.webp' },
+  { name: 'OEKO-TEX Standard 100', desc: '瑞士TESTEX AG认证，婴儿一级安全标准', img: '/images/webp/certs/cert1.webp' },
+  { name: 'GRS 全球回收标准', desc: 'SGS-CSTC颁发，可再生纱线认证', img: '/images/webp/certs/cert2.webp' },
+  { name: 'GRS Scope Certificate', desc: 'SGS认证，涵盖生产、染色、包装、贸易', img: '/images/webp/certs/cert3.webp' },
+  { name: 'SGS 测试报告', desc: 'SGS-CSTC检测，产品全部通过PASS', img: '/images/webp/certs/cert4.webp' },
+  { name: 'GRS 产品附录', desc: 'SGS颁发，可再生纱线产品认证附录', img: '/images/webp/certs/cert5.webp' },
+  { name: 'SGS 产品检测报告', desc: '2020年SGS检测，涵盖多款产品', img: '/images/webp/certs/cert6.webp' },
 ]
 </script>
