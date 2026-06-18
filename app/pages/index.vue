@@ -69,8 +69,6 @@
               Established in 2001, with a total asset of 70 million yuan, with a pollution discharge permit, printing and dyeing, and integrated production, the industry is complete. Covering an area of over 20 acres, with an annual production capacity of 1000 tons or 10 million sewing threads.
             </p>
           </div>
-
-          <!-- 数据卡片 -->
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             <div class="bg-white rounded-xl p-5 text-center shadow-sm">
               <div class="text-3xl font-bold text-primary">2001</div>
@@ -89,8 +87,6 @@
               <div class="text-xs text-gray-500 mt-1">年产能</div>
             </div>
           </div>
-
-          <!-- 规模数据图 -->
           <div class="bg-white rounded-xl p-6 shadow-sm">
             <img src="/images/webp/scale-data.webp" alt="发展规模数据" class="w-full rounded-lg" />
           </div>
@@ -113,39 +109,12 @@
       </div>
     </section>
 
-    <!-- 产品预览 -->
+    <!-- 品质保障 - 用关于明芳里的车间实验室图片 -->
     <section class="py-16 md:py-24">
-      <div class="container-custom">
-        <h2 class="section-title">产品中心</h2>
-        <p class="section-subtitle text-sm md:text-base">涤纶线、尼龙线、包芯线、全棉线、弹力线、绣花线、蓬松线、防水线、抗菌线及再生纱线</p>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
-          <div v-for="product in featuredProducts" :key="product.name"
-            class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
-            <div class="aspect-[3/2] overflow-hidden">
-              <img :src="product.img" :alt="product.name" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-            </div>
-            <div class="p-5">
-              <h3 class="font-bold text-gray-900 text-sm md:text-base">{{ product.name }}</h3>
-              <p class="text-[11px] text-primary font-medium mt-1">{{ product.en }}</p>
-              <p class="text-gray-500 text-xs leading-relaxed mt-2 line-clamp-2">{{ product.desc }}</p>
-              <div class="flex flex-wrap gap-1 mt-3">
-                <span v-for="f in product.tags" :key="f" class="px-2 py-0.5 bg-blue-50 text-primary-600 text-[10px] rounded-full">{{ f }}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="text-center mt-10">
-          <NuxtLink to="/products" class="btn-outline text-sm">查看全部产品 →</NuxtLink>
-        </div>
-      </div>
-    </section>
-
-    <!-- 品质保障 - 缩略图跳转 -->
-    <section class="py-16 md:py-24 bg-gray-50">
       <div class="container-custom max-w-5xl">
         <h2 class="section-title">品质保障</h2>
         <p class="section-subtitle text-sm md:text-base">每款产品严格抽样检测，完整品质控制体系</p>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mt-10">
           <NuxtLink v-for="item in qualityItems" :key="item.title" to="/about#workshop"
             class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 group">
             <div class="aspect-[3/2] overflow-hidden">
@@ -162,36 +131,26 @@
       </div>
     </section>
 
-    <!-- 安全认证 - 缩略图跳转 -->
-    <section class="py-16 md:py-24">
+    <!-- 安全认证 - 点击查看大图 -->
+    <section class="py-16 md:py-24 bg-gray-50">
       <div class="container-custom max-w-5xl">
         <h2 class="section-title">安全认证</h2>
-        <p class="section-subtitle text-sm md:text-base">通过多项国际权威检测认证，产品符合婴儿一级安全标准</p>
+        <p class="section-subtitle text-sm md:text-base">通过多项国际权威检测认证，产品符合婴儿一级安全标准（点击图片查看大图）</p>
         <div class="grid grid-cols-3 md:grid-cols-6 gap-4 mt-10">
-          <NuxtLink v-for="cert in certs" :key="cert.name" to="/about#certs"
-            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 group">
+          <div v-for="cert in certs" :key="cert.name"
+            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 cursor-pointer"
+            @click="openImage(cert.img)">
             <div class="aspect-[3/4] overflow-hidden bg-gray-50">
-              <img :src="cert.img" :alt="cert.name" class="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-300" />
+              <img :src="cert.img" :alt="cert.name" class="w-full h-full object-contain p-1 hover:scale-105 transition-transform duration-300" />
             </div>
-          </NuxtLink>
-        </div>
-        <div class="text-center mt-8">
-          <NuxtLink to="/about#certs" class="text-primary text-sm font-medium hover:underline">查看全部认证 →</NuxtLink>
+          </div>
         </div>
       </div>
-    </section>
 
-    <!-- 合作品牌 -->
-    <section class="py-16 md:py-24 bg-gray-50">
-      <div class="container-custom max-w-4xl">
-        <h2 class="section-title">合作客户与品牌</h2>
-        <p class="section-subtitle text-sm md:text-base">与众多国际知名品牌建立长期合作关系</p>
-        <div class="flex flex-wrap justify-center gap-2.5 mt-8">
-          <span v-for="brand in brands" :key="brand"
-            class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-gray-600 text-xs md:text-sm shadow-sm hover:border-primary hover:text-primary transition-colors cursor-default">
-            {{ brand }}
-          </span>
-        </div>
+      <!-- 大图弹窗 -->
+      <div v-if="lightboxImg" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/80" @click="lightboxImg = ''">
+        <img :src="lightboxImg" alt="证书大图" class="max-w-[90vw] max-h-[90vh] object-contain rounded-lg" />
+        <button class="absolute top-4 right-4 text-white text-3xl hover:text-gray-300">×</button>
       </div>
     </section>
 
@@ -209,6 +168,12 @@
 </template>
 
 <script setup lang="ts">
+const lightboxImg = ref('')
+
+function openImage(img: string) {
+  lightboxImg.value = img
+}
+
 const heroSlides = [
   {
     tag: 'FACTORY STRENGTH',
@@ -245,72 +210,20 @@ const applications = [
   { label: '汽车内饰', icon: '🚗' },
 ]
 
-const featuredProducts = [
-  { name: '涤纶蓬松线', en: 'Textured Polyester', img: '/images/webp/products/textured-polyester.webp', desc: '覆盖效果佳、强力性好、手感柔软光滑，适用于内衣泳衣针织品', tags: ['手感柔软', '覆盖佳', '颜色广泛'] },
-  { name: '涤纶短纤', en: 'Staple Spun Polyester', img: '/images/webp/products/staple-spun-polyester.webp', desc: '耐磨性高、强力缝口美观、色牢度高，适用高速缝纫', tags: ['耐磨', '色牢度高', '高速缝纫'] },
-  { name: '尼龙邦迪线', en: 'Nylon Bonded Thread', img: '/images/webp/products/nylon-bonded.webp', desc: '生产效率高、强度高、颜色选择广泛、光泽典雅', tags: ['高强度', '耐磨', '光泽典雅'] },
-  { name: '可再生纱线', en: 'Recycled Yarns', img: '/images/webp/products/recycled-yarn.webp', desc: '从废弃矿泉水瓶提取制成，废物再利用，符合OEKO-TEX认证', tags: ['环保再生', '高强度', '耐磨'] },
-]
-
 const qualityItems = [
-  {
-    title: '生产车间', desc: '引进新型自动化高速线机，生产效率提高三倍。',
-    img: '/images/webp/company/workshop1.webp',
-    details: ['自动化高速线机', '产能提升300%', '20余亩厂房'],
-  },
-  {
-    title: '染坊', desc: '拥有1KG至500KG不同型号染色机40余台。',
-    img: '/images/webp/company/dyehouse.webp',
-    details: ['40余台染色机', '多型号覆盖', '大批量生产'],
-  },
-  {
-    title: '实验检测', desc: '所有客户的每款产品都会进行抽样严格检测。',
-    img: '/images/webp/lab/testing.webp',
-    details: ['抽样检测', '全品类覆盖', '严格品控'],
-  },
-  {
-    title: '质检实验室', desc: '拉力、粗细度、色牢度等全套检测设备，配置样板间。',
-    img: '/images/webp/lab/laboratory.webp',
-    details: ['拉力检测', '色牢度检测', '样板间配置'],
-  },
+  { title: '生产车间', img: '/images/webp/lab/lab3.webp' },
+  { title: '染坊', img: '/images/webp/lab/lab5.webp' },
+  { title: '实验检测', img: '/images/webp/lab/lab1.webp' },
+  { title: '质检室', img: '/images/webp/lab/lab2.webp' },
+  { title: '样板间', img: '/images/webp/lab/lab4.webp' },
 ]
 
 const certs = [
-  {
-    name: 'OEKO-TEX Standard 100',
-    desc: '瑞士TESTEX AG认证，婴儿一级安全标准',
-    img: '/images/webp/certs/cert1.webp',
-  },
-  {
-    name: 'GRS 全球回收标准',
-    desc: 'SGS-CSTC颁发，可再生纱线认证',
-    img: '/images/webp/certs/cert2.webp',
-  },
-  {
-    name: 'GRS Scope Certificate',
-    desc: 'SGS认证，涵盖生产、染色、包装、贸易',
-    img: '/images/webp/certs/cert3.webp',
-  },
-  {
-    name: 'SGS 测试报告',
-    desc: 'SGS-CSTC检测，产品全部通过PASS',
-    img: '/images/webp/certs/cert4.webp',
-  },
-  {
-    name: 'GRS 产品附录',
-    desc: 'SGS颁发，可再生纱线产品认证附录',
-    img: '/images/webp/certs/cert5.webp',
-  },
-  {
-    name: 'SGS 产品检测报告',
-    desc: '2020年SGS检测，涵盖涤纶蓬松线、短纤等产品',
-    img: '/images/webp/certs/cert6.webp',
-  },
-]
-
-const brands = [
-  'FILA', 'Lululemon', 'Skechers', 'MUJI 无印良品', 'TESCO',
-  'Bananain 蕉内', 'Beneunder 蕉下', 'Aimer 爱慕', 'Regina Miracle 维珍妮',
-  '全棉时代', '水星家居', '安踏 ANTA', '利丰',
+  { name: 'OEKO-TEX Standard 100', desc: '瑞士TESTEX AG认证，婴儿一级安全标准', img: '/images/webp/certs/cert1.webp' },
+  { name: 'GRS 全球回收标准', desc: 'SGS-CSTC颁发，可再生纱线认证', img: '/images/webp/certs/cert2.webp' },
+  { name: 'GRS Scope Certificate', desc: 'SGS认证，涵盖生产、染色、包装、贸易', img: '/images/webp/certs/cert3.webp' },
+  { name: 'SGS 测试报告', desc: 'SGS-CSTC检测，产品全部通过PASS', img: '/images/webp/certs/cert4.webp' },
+  { name: 'GRS 产品附录', desc: 'SGS颁发，可再生纱线产品认证附录', img: '/images/webp/certs/cert5.webp' },
+  { name: 'SGS 产品检测报告', desc: '2020年SGS检测，涵盖多款产品', img: '/images/webp/certs/cert6.webp' },
 ]
 </script>
