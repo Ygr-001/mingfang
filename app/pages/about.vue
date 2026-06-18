@@ -13,13 +13,31 @@
       </div>
     </section>
 
-    <!-- 发展历程 - 横向图 -->
+    <!-- 发展历程 - 前端代码绘制 -->
     <section id="history" class="py-16 md:py-24">
-      <div class="container-custom max-w-5xl">
+      <div class="container-custom max-w-6xl">
         <h2 class="section-title">发展历程</h2>
         <p class="section-subtitle text-sm md:text-base">从1997年至今，明芳线业不断发展壮大</p>
-        <div class="mt-10">
-          <img src="/images/webp/company/history.webp" alt="发展历程" class="w-full rounded-2xl shadow-lg" />
+
+        <!-- 横向时间线 -->
+        <div class="mt-16 relative">
+          <!-- 底线 -->
+          <div class="absolute top-8 left-0 right-0 h-0.5 bg-blue-100 hidden md:block"></div>
+
+          <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-4">
+            <div v-for="(item, idx) in timeline" :key="item.year" class="relative text-center md:text-left">
+              <!-- 圆点 -->
+              <div class="flex md:block items-center gap-3">
+                <div class="w-16 h-16 md:mx-auto rounded-full bg-gradient-to-br from-primary to-primary-700 flex items-center justify-center text-white font-bold text-sm flex-shrink-0 relative z-10 shadow-lg ring-4 ring-white">
+                  {{ item.year }}
+                </div>
+                <div class="md:mt-4">
+                  <h3 class="font-bold text-gray-900 text-sm md:text-xs leading-snug">{{ item.title }}</h3>
+                  <p class="text-gray-500 text-xs mt-1 leading-relaxed">{{ item.desc }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
