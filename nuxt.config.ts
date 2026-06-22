@@ -7,7 +7,12 @@ export default defineNuxtConfig({
 
   css: ['~~/assets/css/main.css'],
 
+  // GitHub Pages 部署配置
+  nitro: {
+    preset: 'static',
+  },
   app: {
+    baseURL: '/mingfang/',
     head: {
       title: '明芳线业 - 专业纱线生产制造商 | MING FANG',
       meta: [
@@ -16,7 +21,7 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/x-icon', href: '/mingfang/favicon.ico' },
       ],
     },
   },
