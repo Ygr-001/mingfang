@@ -13,7 +13,6 @@ export default defineNuxtConfig({
   },
   app: {
     baseURL: '/mingfang/',
-    cdnURL: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public',
     head: {
       title: '明芳线业 - 专业纱线生产制造商 | MING FANG',
       meta: [
