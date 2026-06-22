@@ -45,7 +45,7 @@
             </div>
           </div>
           <div class="relative">
-            <img src="/images/webp/scale-icon2.webp" alt="明芳线业" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-lg" />
+            <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/scale-icon2.webp" alt="明芳线业" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-lg" />
             <div class="absolute -bottom-3 -left-3 bg-primary text-white px-3 py-1.5 rounded-lg shadow text-sm font-bold">
               始于 1997
             </div>
@@ -83,7 +83,7 @@
             </div>
           </div>
           <div class="bg-white rounded-xl p-6 shadow-sm">
-            <img src="/images/webp/scale-data.webp" alt="发展规模数据" class="w-full rounded-lg" />
+            <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/scale-data.webp" alt="发展规模数据" class="w-full rounded-lg" />
           </div>
         </div>
       </div>
@@ -176,7 +176,7 @@ const heroSlides = [
     description: '明芳产业园，集纺纱、染色、检测、运输于一体，月产量100吨以上',
     btnText: '了解我们',
     link: '/about',
-    img: '/images/webp/pic2.webp',
+    img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/pic2.webp',
   },
   {
     tag: 'SINCE 1997',
@@ -184,7 +184,7 @@ const heroSlides = [
     description: '14大产品系列，通过OEKO-TEX标准100婴儿一级认证',
     btnText: '查看产品',
     link: '/products',
-    img: '/images/webp/pic4.webp',
+    img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/pic4.webp',
   },
   {
     tag: 'PRODUCTS',
@@ -192,7 +192,7 @@ const heroSlides = [
     description: '14大产品系列，覆盖服装、玩具、运动器材、汽车内饰等行业',
     btnText: '了解产品',
     link: '/products',
-    img: '/images/webp/company/cover2.webp',
+    img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/company/cover2.webp',
   },
 ]
 
@@ -206,19 +206,19 @@ const applications = [
 ]
 
 const qualityItems = [
-  { title: '生产车间', img: '/images/webp/lab/lab3.webp' },
-  { title: '染坊', img: '/images/webp/lab/lab5.webp' },
-  { title: '实验检测', img: '/images/webp/lab/lab1.webp' },
-  { title: '质检室', img: '/images/webp/lab/lab2.webp' },
-  { title: '样板间', img: '/images/webp/lab/lab4.webp' },
+  { title: '生产车间', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab3.webp' },
+  { title: '染坊', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab5.webp' },
+  { title: '实验检测', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab1.webp' },
+  { title: '质检室', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab2.webp' },
+  { title: '样板间', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab4.webp' },
 ]
 
 const certs = [
-  { name: 'OEKO-TEX Standard 100', desc: '瑞士TESTEX AG认证，婴儿一级安全标准', img: '/images/webp/certs/cert1.webp' },
-  { name: 'GRS 全球回收标准', desc: 'SGS-CSTC颁发，可再生纱线认证', img: '/images/webp/certs/cert2.webp' },
-  { name: 'GRS Scope Certificate', desc: 'SGS认证，涵盖生产、染色、包装、贸易', img: '/images/webp/certs/cert3.webp' },
-  { name: 'SGS 测试报告', desc: 'SGS-CSTC检测，产品全部通过PASS', img: '/images/webp/certs/cert4.webp' },
-  { name: 'GRS 产品附录', desc: 'SGS颁发，可再生纱线产品认证附录', img: '/images/webp/certs/cert5.webp' },
-  { name: 'SGS 产品检测报告', desc: '2020年SGS检测，涵盖多款产品', img: '/images/webp/certs/cert6.webp' },
+  { name: 'OEKO-TEX Standard 100', desc: '瑞士TESTEX AG认证，婴儿一级安全标准', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/certs/cert1.webp' },
+  { name: 'GRS 全球回收标准', desc: 'SGS-CSTC颁发，可再生纱线认证', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/certs/cert2.webp' },
+  { name: 'GRS Scope Certificate', desc: 'SGS认证，涵盖生产、染色、包装、贸易', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/certs/cert3.webp' },
+  { name: 'SGS 测试报告', desc: 'SGS-CSTC检测，产品全部通过PASS', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/certs/cert4.webp' },
+  { name: 'GRS 产品附录', desc: 'SGS颁发，可再生纱线产品认证附录', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/certs/cert5.webp' },
+  { name: 'SGS 产品检测报告', desc: '2020年SGS检测，涵盖多款产品', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/certs/cert6.webp' },
 ]
 </script>

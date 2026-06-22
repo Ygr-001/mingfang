@@ -1,7 +1,7 @@
 <template>
   <div class="pt-20">
     <section class="relative h-[300px] md:h-[350px]">
-      <img src="/images/webp/company/cover2.webp" alt="产品中心" class="absolute inset-0 w-full h-full object-cover" />
+      <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/company/cover2.webp" alt="产品中心" class="absolute inset-0 w-full h-full object-cover" />
       <div class="absolute inset-0 bg-black/35" />
       <div class="absolute inset-0 z-10 flex items-center justify-center text-center text-white px-4">
         <div>
@@ -144,7 +144,7 @@ function openImage(img: string) {
 
 const products = [
   {
-    name: '涤纶蓬松线', en: 'Textured Polyester', img: '/images/webp/products/prod01.webp',
+    name: '涤纶蓬松线', en: 'Textured Polyester', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod01.webp',
     desc: '覆盖效果佳、强力性好、手感柔软光滑、耐化学性强、颜色选择广泛。适用于内衣、泳衣、针织品、家纺和童装。符合OEKO-TEX标准100认证。',
     features: ['覆盖效果佳', '强力性好', '手感柔软', '耐化学性', '颜色选择广泛'],
     apps: ['内衣', '泳衣', '女士内衣', '针织品', '家纺', '童装'],
@@ -153,7 +153,7 @@ const products = [
     specs: [['Tex 10', 'Ticket 220'], ['Tex 18', 'Ticket 160'], ['Tex 21', 'Ticket 140'], ['Tex 35', 'Ticket 80'], ['Tex 70', 'Ticket 60']],
   },
   {
-    name: '涤纶包芯', en: 'Polyester Wrap', img: '/images/webp/products/prod02.webp',
+    name: '涤纶包芯', en: 'Polyester Wrap', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod02.webp',
     desc: '绝佳的相对强度、耐磨性高、耐化学性。强力缝口外观美观、避免跳针、生产效率高。色牢度高、颜色选择广泛，适用于高速缝纫。',
     features: ['绝佳强度', '耐磨性高', '缝口平滑', '避免跳针', '色牢度高'],
     apps: ['服装', '家纺', '皮革制品', '工业缝纫'],
@@ -162,7 +162,7 @@ const products = [
     specs: [['Tex 18', 'Ticket 180'], ['Tex 21', 'Ticket 150'], ['Tex 27', 'Ticket 120'], ['Tex 40', 'Ticket 80'], ['Tex 60', 'Ticket 40']],
   },
   {
-    name: '绣花线', en: 'Embroidery Thread', img: '/images/webp/products/prod07.webp',
+    name: '绣花线', en: 'Embroidery Thread', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod07.webp',
     desc: '人造丝绣花线和涤纶绣花线，常用规格150D/2、120D/2、108D/2、75D/2。拥有极佳的光泽以及车缝时用线顺畅的特点。颜色选择广泛，颜色艳丽。符合OEKO-TEX标准100认证。',
     features: ['耐用度高', '良好光泽', '颜色艳丽', '用线顺畅'],
     apps: ['服装', '家纺家居', '工艺饰品', '鞋帽'],
@@ -171,7 +171,7 @@ const products = [
     specs: [['150D/2', '人造丝绣花线'], ['120D/2', '最常用规格'], ['108D/2', '涤纶绣花线最常用'], ['75D/2', '精细绣花']],
   },
   {
-    name: '高强涤纶长丝线', en: 'High Strength Polyester', img: '/images/webp/products/prod08.webp',
+    name: '高强涤纶长丝线', en: 'High Strength Polyester', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod08.webp',
     desc: '高强力聚酯化纤长丝制成的缝纫线，也称高强线。线质柔软光滑，色牢度强。耐热、耐光、耐损性强，拉断强度大，弹性较小。符合OEKO-TEX标准100认证。',
     features: ['耐热', '耐光', '耐损性强', '拉断强度大', '弹性较小'],
     apps: ['真皮箱包', '真皮鞋类', '家居用品'],
@@ -180,7 +180,7 @@ const products = [
     specs: [['Tex 16', '70D/3', '21.5', '11-20'], ['Tex 16', '120D/2', '21.5', '11-20'], ['Tex 35', '100D/3', '22.3', '11-20'], ['Tex 35', '120D/3', '22.3', '11-20']],
   },
   {
-    name: '尼龙邦迪线', en: 'Nylon Bonded Thread', img: '/images/webp/products/prod09.webp',
+    name: '尼龙邦迪线', en: 'Nylon Bonded Thread', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod09.webp',
     desc: '生产效率高、强力缝口外观美观、耐磨性好、强度高。颜色选择广泛、光泽典雅。适用于鞋类、箱包、体育用品、户外用品和皮革制品等多种高强度场景。',
     features: ['生产效率高', '高强度', '耐磨性好', '光泽典雅'],
     apps: ['鞋类', '家具装饰', '箱包', '体育用品', '户外用品', '皮革制品'],
@@ -189,7 +189,7 @@ const products = [
     specs: [['Tex 45', 'Ticket 60/3', '150D/3'], ['Tex 75', 'Ticket 40', '210D/3'], ['Tex 90', 'Ticket 30', '280D/3'], ['Tex 135', 'Ticket 20', '420D/3'], ['Tex 210', 'Ticket 15', '630D/3']],
   },
   {
-    name: '汽车用品专用线', en: 'Automotive Thread', img: '/images/webp/products/prod10.webp',
+    name: '汽车用品专用线', en: 'Automotive Thread', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod10.webp',
     desc: '高韧性、强力缝口外观美观、耐磨性好。强力高、颜色选择广泛、光泽典雅。延伸性好，符合OEKO-TEX标准100认证。适用于安全气囊、汽车座椅和汽车中控。',
     features: ['高韧性', '耐磨性好', '延伸性好', '光泽典雅'],
     apps: ['安全气囊', '汽车座椅', '汽车中控'],
@@ -198,7 +198,7 @@ const products = [
     specs: [['Tex 45', '210D/2', '22.9', '26-36'], ['Tex 70', '210D/3', '23.8', '25-35'], ['Tex 90', '280D/3', '25.6', '25-35'], ['Tex 135', '420D/3', '28.8', '25-34'], ['Tex 210', '630D/3', '211.2', '24-33']],
   },
   {
-    name: '涤纶短纤', en: 'Staple Spun Polyester', img: '/images/webp/products/prod11.webp',
+    name: '涤纶短纤', en: 'Staple Spun Polyester', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod11.webp',
     desc: '耐磨性高、强力缝口外观美观、耐化学性。缝口平滑、避免跳针、生产效率高。色牢度高，适用于高速缝纫。颜色选择广泛。',
     features: ['耐磨性高', '色牢度高', '缝口平滑', '避免跳针', '高速缝纫'],
     apps: ['各类服装', '家纺', '鞋帽', '工业用线'],
@@ -207,7 +207,7 @@ const products = [
     specs: [['Tex 18', 'Ticket 180', '602'], ['Tex 21', 'Ticket 140', '803'], ['Tex 27', 'Ticket 120', '603'], ['Tex 40', 'Ticket 80', '302'], ['Tex 60', 'Ticket 50', '604']],
   },
   {
-    name: '高膨体涤纶线', en: 'High Bulk Textured Polyester', img: '/images/webp/products/prod12.webp',
+    name: '高膨体涤纶线', en: 'High Bulk Textured Polyester', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod12.webp',
     desc: '覆盖效果佳、强力性好、接缝轻。手感柔软、抗化学性强、颜色选择广泛。适用于婴儿服饰、内衣、防晒衣和女士内衣。',
     features: ['覆盖效果佳', '强力性好', '手感柔软', '抗化学性'],
     apps: ['婴儿服饰', '内衣', '防晒衣', '女士内衣'],
@@ -216,7 +216,7 @@ const products = [
     specs: [['Tex 18', 'Ticket 160'], ['Tex 21', 'Ticket 140']],
   },
   {
-    name: '高延伸长丝线', en: 'Eloflex', img: '/images/webp/products/prod14.webp',
+    name: '高延伸长丝线', en: 'Eloflex', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod14.webp',
     desc: '延伸度高、润滑度高，适用于需要弹性和舒适度的产品。适用于紧身裤、泳衣、女士内衣和运动服饰。',
     features: ['延伸度高', '润滑度高'],
     apps: ['紧身裤', '泳衣', '女士内衣', '运动服饰'],
@@ -225,7 +225,7 @@ const products = [
     specs: [['Tex 27', 'Ticket 120']],
   },
   {
-    name: '尼龙弹力线', en: 'Elastic Nylon', img: '/images/webp/products/prod16.webp',
+    name: '尼龙弹力线', en: 'Elastic Nylon', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod16.webp',
     desc: '回弹力强、颜色选择广泛、光泽典雅。强力缝口外观美观、生产效率高、耐磨性好。适用于紧身裤、内衣和运动服饰。',
     features: ['回弹力强', '光泽典雅', '强力缝口', '生产效率高'],
     apps: ['紧身裤', '内衣', '运动服饰'],

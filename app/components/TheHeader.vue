@@ -4,7 +4,7 @@
       <div class="flex items-center justify-between h-16 md:h-20">
         <!-- Logo -->
         <NuxtLink to="/" class="flex-shrink-0 flex items-center gap-2 md:gap-3">
-          <img src="/images/webp/pic3.webp" alt="明芳线业" class="h-10 md:h-14 w-auto" />
+          <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/pic3.webp" alt="明芳线业" class="h-10 md:h-14 w-auto" />
           <div class="hidden sm:block">
             <h1 class="text-base md:text-lg font-bold text-gray-900 leading-tight">明芳线业</h1>
             <p class="text-[10px] md:text-xs text-gray-400 leading-tight tracking-wider">MING FANG THREADS</p>

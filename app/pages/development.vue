@@ -1,7 +1,7 @@
 <template>
   <div class="pt-20">
     <section class="relative h-[300px] md:h-[350px]">
-      <img src="/images/webp/products/prod03.webp" alt="可持续发展" class="absolute inset-0 w-full h-full object-cover" />
+      <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod03.webp" alt="可持续发展" class="absolute inset-0 w-full h-full object-cover" />
       <div class="absolute inset-0 bg-black/35" />
       <div class="absolute inset-0 z-10 flex items-center justify-center text-center text-white px-4">
         <div>
@@ -132,42 +132,42 @@ function openImage(img: string) { lightboxImg.value = img }
 
 const ecoProducts = [
   {
-    name: '可再生纱线', en: 'Recycled Yarns', img: '/images/webp/products/prod03.webp',
+    name: '可再生纱线', en: 'Recycled Yarns', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod03.webp',
     desc: '从废弃矿泉水瓶和可乐瓶中提取制成，废物再利用。减少污染、降低成本。高断裂强度、耐磨性好、收缩率低。OEKO-TEX认证。',
     features: ['高断裂强度', '耐磨', '收缩率低', 'OEKO-TEX'],
     apps: ['环保服装', '可再生织物', '可持续产品'],
     cert: 'OEKO-TEX Standard 100 认证',
   },
   {
-    name: '环保舒弹丝', en: 'Eco Elastic Silk', img: '/images/webp/products/prod13.webp',
+    name: '环保舒弹丝', en: 'Eco Elastic Silk', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod13.webp',
     desc: '源于可再生资源的生物质原料，微弹性可再生纤维短丝。能耗低、余料可回收、可循环使用。高舒适度、弹性好、透气吸湿。OEKO-TEX认证。',
     features: ['高舒适度', '弹性好', '透气吸湿', '可循环'],
     apps: ['运动鞋', '外套', '柔软面料'],
     cert: 'OEKO-TEX Standard 100 认证',
   },
   {
-    name: '三防线', en: 'Three Defense Thread', img: '/images/webp/products/prod04.webp',
+    name: '三防线', en: 'Three Defense Thread', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod04.webp',
     desc: '防泼水、防油、易去污功能。经三防助剂处理后具有优异的防水、防油、防污功能，可长期保持干爽和洁净。',
     features: ['防泼水', '防油', '易去污', '抗污渍'],
     apps: ['户外用品', '防护服', '功能性服装'],
     cert: '',
   },
   {
-    name: '橡筋线', en: 'Rubber Thread', img: '/images/webp/products/prod05.webp',
+    name: '橡筋线', en: 'Rubber Thread', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod05.webp',
     desc: '由优质双股纤维丝双包庄而成，具有高强度拉力和弹力。高环保性、拉力稳定、高色牢度、亲肤性。适用于需要弹性的产品。',
     features: ['高环保', '拉力稳定', '高色牢度', '亲肤'],
     apps: ['袜子', '护腕护肤', '羊毛衫', '鞋子'],
     cert: '',
   },
   {
-    name: '水溶线', en: 'Water Soluble Thread', img: '/images/webp/products/prod06.webp',
+    name: '水溶线', en: 'Water Soluble Thread', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod06.webp',
     desc: '绿色环保功能性纱线，遇水溶解、无污染、无残留。水溶呈无色透明状，短时间内能自然生物降解。适用于绣花、缝纫、拼缝等。',
     features: ['无污染', '遇水溶解', '生物降解', '应用广泛'],
     apps: ['绣花定位', '临时缝纫', '拼缝固定'],
     cert: '',
   },
   {
-    name: '抗菌线', en: 'Antimicrobial Thread', img: '/images/webp/products/prod15.webp',
+    name: '抗菌线', en: 'Antimicrobial Thread', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod15.webp',
     desc: '集抗菌和吸湿快干两种功能于一身的功能性健康纺织品。综合棉的吸湿性和涤纶的快干性，有效除去有害细菌和汗味。',
     features: ['抗菌性能佳', '防异味', '防汗', '吸湿快干'],
     apps: ['工作服', '床品', '汽车座椅'],

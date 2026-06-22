@@ -1,7 +1,7 @@
 <template>
   <div class="pt-20">
     <section class="relative h-[300px] md:h-[350px]">
-      <img src="/images/webp/company/brands.webp" alt="合作客户" class="absolute inset-0 w-full h-full object-cover" />
+      <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/company/brands.webp" alt="合作客户" class="absolute inset-0 w-full h-full object-cover" />
       <div class="absolute inset-0 bg-black/35" />
       <div class="absolute inset-0 z-10 flex items-center justify-center text-center text-white px-4">
         <div>
@@ -15,7 +15,7 @@
     <section class="py-16 md:py-24">
       <div class="container-custom max-w-5xl">
         <div class="bg-white rounded-2xl overflow-hidden shadow-sm mb-12">
-          <img src="/images/webp/company/customers.webp" alt="合作客户" class="w-full" />
+          <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/company/customers.webp" alt="合作客户" class="w-full" />
         </div>
         <div class="text-center">
           <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-2">部分合作品牌</h2>
