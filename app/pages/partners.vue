@@ -216,5 +216,3 @@ onMounted(() => {
   50% { opacity: 0.7; transform: scale(1.05); }
 }
 </style>
-</content>
-</invoke>
