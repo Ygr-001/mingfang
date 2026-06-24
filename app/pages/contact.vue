@@ -1,7 +1,7 @@
 <template>
   <div class="pt-20">
     <section class="relative h-[300px] md:h-[350px]">
-      <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/company/cover3.webp" alt="联系我们" class="absolute inset-0 w-full h-full object-cover" />
+      <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/company/cover3.webp" alt="联系我们" class="absolute inset-0 w-full h-full object-cover"  loading="lazy">
       <div class="absolute inset-0 bg-black/35" />
       <div class="absolute inset-0 z-10 flex items-center justify-center text-center text-white px-4">
         <div>
@@ -57,7 +57,7 @@
               </div>
             </div>
             <div class="mt-8 p-4 bg-gray-50 rounded-xl">
-              <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/company/contact-card.webp" alt="明芳线业联系卡" class="w-full rounded-lg" />
+              <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/company/contact-card.webp" alt="明芳线业联系卡" class="w-full rounded-lg"  loading="lazy">
             </div>
           </div>
 

@@ -28,8 +28,8 @@
     <!-- 公司简介 + 发展规模 -->
     <section class="py-16 md:py-24">
       <div class="container-custom">
-        <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          <div>
+        <div ref="profileEl" class="grid lg:grid-cols-2 gap-12 items-center mb-16 reveal-section" :class="{ 'is-visible': profileVisible }">
+          <div class="reveal-left">
             <span class="text-primary font-semibold tracking-widest text-xs uppercase">Enterprise Profile</span>
             <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mt-3 mb-6">公司简介</h2>
             <div class="space-y-4 text-gray-600 leading-relaxed text-sm md:text-base">
@@ -39,66 +39,90 @@
               <p>
                 公司现全资收购具有独立排污许可证的<strong class="text-gray-900">广东肇庆鸿基织业有限公司</strong>，成立明芳产业园。集生产、染色、运输等系列完善服务于一体，实力雄厚，<strong class="text-gray-900">月产量达100吨以上</strong>。
               </p>
-              <p class="text-xs text-gray-400 italic">
-                Mingfang threads was founded in 1997 and is a professional yarn production manufacturer. The company produces various polyester threads, nylon threads, cored threads, all cotton threads, specialty threads, elastic thread embroidery threads, fluffy threads, waterproof threads, antibacterial threads, and recycled yarns, which are highly praised by customers. The company is now fully purchasing Guangdong Zhaoqing Hongji Textile Co., Ltd., which has an independent pollution discharge license, to establish Mingfang Industrial Park. Integrating production, dyeing, transportation and other comprehensive services, with a monthly output of over 100 tons.
+              <p class="text-xs text-gray-400 italic leading-relaxed">
+                Mingfang threads was founded in 1997 and is a professional yarn production manufacturer. Integrating production, dyeing, transportation and other comprehensive services, with a monthly output of over 100 tons.
               </p>
             </div>
           </div>
-          <div class="relative">
-            <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/scale-icon2.webp" alt="明芳线业" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-lg" />
-            <div class="absolute -bottom-3 -left-3 bg-primary text-white px-3 py-1.5 rounded-lg shadow text-sm font-bold">
+          <div class="relative reveal-right">
+            <div class="absolute -inset-4 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-3xl opacity-50 blur-2xl"></div>
+            <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/scale-icon2.webp"
+              alt="明芳线业"
+              loading="lazy"
+              class="relative w-full aspect-[4/3] object-cover rounded-2xl shadow-xl hover:scale-[1.02] hover:-rotate-1 transition-transform duration-700" />
+            <div class="absolute -bottom-3 -left-3 bg-primary text-white px-4 py-2 rounded-xl shadow-lg text-sm font-bold hover:scale-110 transition-transform">
               始于 1997
+            </div>
+            <div class="absolute -top-3 -right-3 bg-white px-3 py-1.5 rounded-lg shadow-md text-xs font-medium text-gray-700 hover:scale-110 transition-transform">
+              <span class="text-primary">●</span> 30+ 年
             </div>
           </div>
         </div>
 
         <!-- 发展规模 -->
-        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 md:p-12">
-          <div class="text-center mb-8">
+        <div ref="scaleEl" class="bg-gradient-to-br from-blue-50 via-white to-indigo-50 rounded-3xl p-8 md:p-12 relative overflow-hidden reveal-section" :class="{ 'is-visible': scaleVisible }">
+          <!-- 装饰背景 -->
+          <div class="absolute top-0 right-0 w-64 h-64 bg-blue-200/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+          <div class="absolute bottom-0 left-0 w-64 h-64 bg-indigo-200/30 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+
+          <div class="relative text-center mb-8">
             <span class="text-primary font-semibold tracking-widest text-xs uppercase">Development Scale</span>
             <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mt-3 mb-3">发展规模</h2>
             <p class="text-gray-500 text-sm max-w-2xl mx-auto">
               建立于2001年，总资产七千万元，有排污许可证，印染、生产一体，产业完整。占地20余亩，年产能1000吨或1000万个缝纫线。
             </p>
-            <p class="text-xs text-gray-400 italic mt-1">
-              Established in 2001, with a total asset of 70 million yuan, with a pollution discharge permit, printing and dyeing, and integrated production, the industry is complete. Covering an area of over 20 acres, with an annual production capacity of 1000 tons or 10 million sewing threads.
+            <p class="text-xs text-gray-400 italic mt-1 max-w-2xl mx-auto">
+              Established in 2001, with a total asset of 70 million yuan, integrated production. Annual production capacity of 1000 tons or 10 million sewing threads.
             </p>
           </div>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            <div class="bg-white rounded-xl p-5 text-center shadow-sm">
-              <div class="text-3xl font-bold text-primary">2001</div>
-              <div class="text-xs text-gray-500 mt-1">建立年份</div>
-            </div>
-            <div class="bg-white rounded-xl p-5 text-center shadow-sm">
-              <div class="text-3xl font-bold text-primary">7000万</div>
-              <div class="text-xs text-gray-500 mt-1">总资产</div>
-            </div>
-            <div class="bg-white rounded-xl p-5 text-center shadow-sm">
-              <div class="text-3xl font-bold text-primary">20亩+</div>
-              <div class="text-xs text-gray-500 mt-1">占地面积</div>
-            </div>
-            <div class="bg-white rounded-xl p-5 text-center shadow-sm">
-              <div class="text-3xl font-bold text-primary">1000吨</div>
-              <div class="text-xs text-gray-500 mt-1">年产能</div>
+
+          <!-- 数据卡片 - 数字动画 -->
+          <div class="relative grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div v-for="(stat, idx) in stats" :key="stat.label"
+              class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 stat-card group"
+              :style="{ animationDelay: idx * 0.1 + 's' }">
+              <div class="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-transform">
+                <span class="text-xl">{{ stat.icon }}</span>
+              </div>
+              <div class="text-2xl md:text-3xl font-bold text-primary stat-number">{{ stat.value }}</div>
+              <div class="text-xs text-gray-500 mt-1">{{ stat.label }}</div>
             </div>
           </div>
-          <div class="bg-white rounded-xl p-6 shadow-sm">
-            <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/scale-data.webp" alt="发展规模数据" class="w-full rounded-lg" />
+
+          <!-- 规模数据图 -->
+          <div class="relative bg-white rounded-2xl p-6 shadow-sm overflow-hidden group hover:shadow-lg transition-shadow">
+            <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/scale-data.webp"
+              alt="发展规模数据"
+              loading="lazy"
+              class="w-full rounded-lg group-hover:scale-[1.01] transition-transform duration-700" />
           </div>
         </div>
       </div>
     </section>
 
     <!-- 业务范围 -->
-    <section class="py-16 md:py-24 bg-gray-50">
+    <section class="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
       <div class="container-custom">
-        <h2 class="section-title">业务范围</h2>
-        <p class="section-subtitle text-sm md:text-base">开发内衣、泳衣、运动服、鞋包、塑身衣和汽车内饰的纱线辅料</p>
-        <div class="grid grid-cols-3 md:grid-cols-6 gap-4 mt-10">
-          <div v-for="item in applications" :key="item.label"
-            class="bg-white rounded-xl p-5 text-center shadow-sm hover:shadow-md transition-shadow">
-            <span class="text-3xl">{{ item.icon }}</span>
-            <p class="text-sm font-medium text-gray-700 mt-2">{{ item.label }}</p>
+        <div ref="appsEl" class="text-center mb-12 reveal-section" :class="{ 'is-visible': appsVisible }">
+          <span class="text-primary font-semibold tracking-widest text-xs uppercase">Business Scope</span>
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mt-3 mb-3">业务范围</h2>
+          <p class="text-gray-500 text-sm max-w-2xl mx-auto">
+            开发内衣、泳衣、运动服、鞋包、塑身衣和汽车内饰的纱线辅料
+          </p>
+        </div>
+        <div class="grid grid-cols-3 md:grid-cols-6 gap-4">
+          <div v-for="(item, idx) in applications" :key="item.label"
+            class="app-card group bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 cursor-pointer overflow-hidden relative"
+            :style="{ animationDelay: idx * 0.08 + 's' }">
+            <!-- hover背景渐变 -->
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="relative">
+              <div class="w-16 h-16 mx-auto mb-3 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 group-hover:from-primary group-hover:to-primary-700 transition-all duration-500">
+                <span class="text-3xl group-hover:scale-110 transition-transform inline-block">{{ item.icon }}</span>
+              </div>
+              <p class="text-sm font-semibold text-gray-700 group-hover:text-primary transition-colors">{{ item.label }}</p>
+              <p class="text-[10px] text-gray-400 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">{{ item.desc }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -113,7 +137,7 @@
           <NuxtLink v-for="item in qualityItems" :key="item.title" to="/about#workshop"
             class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 group">
             <div class="aspect-[3/2] overflow-hidden">
-              <img :src="item.img" :alt="item.title" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+              <img :src="item.img" :alt="item.title" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"  loading="lazy">
             </div>
             <div class="p-3 text-center">
               <h3 class="font-bold text-gray-900 text-sm">{{ item.title }}</h3>
@@ -136,7 +160,7 @@
             class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 cursor-pointer"
             @click="openImage(cert.img)">
             <div class="aspect-[3/4] overflow-hidden bg-gray-50">
-              <img :src="cert.img" :alt="cert.name" class="w-full h-full object-contain p-1 hover:scale-105 transition-transform duration-300" />
+              <img :src="cert.img" :alt="cert.name" class="w-full h-full object-contain p-1 hover:scale-105 transition-transform duration-300"  loading="lazy">
             </div>
           </div>
         </div>
@@ -144,7 +168,7 @@
 
       <!-- 大图弹窗 -->
       <div v-if="lightboxImg" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/80" @click="lightboxImg = ''">
-        <img :src="lightboxImg" alt="证书大图" class="max-w-[90vw] max-h-[90vh] object-contain rounded-lg" />
+        <img :src="lightboxImg" alt="证书大图" class="max-w-[90vw] max-h-[90vh] object-contain rounded-lg"  loading="lazy">
         <button class="absolute top-4 right-4 text-white text-3xl hover:text-gray-300">×</button>
       </div>
     </section>
@@ -168,6 +192,40 @@ const lightboxImg = ref('')
 function openImage(img: string) {
   lightboxImg.value = img
 }
+
+// 滚动触发动画
+const profileEl = ref<HTMLElement | null>(null)
+const scaleEl = ref<HTMLElement | null>(null)
+const appsEl = ref<HTMLElement | null>(null)
+const profileVisible = ref(false)
+const scaleVisible = ref(false)
+const appsVisible = ref(false)
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (entry.target === profileEl.value) profileVisible.value = true
+          if (entry.target === scaleEl.value) scaleVisible.value = true
+          if (entry.target === appsEl.value) appsVisible.value = true
+          observer.unobserve(entry.target)
+        }
+      })
+    },
+    { threshold: 0.15 }
+  )
+  if (profileEl.value) observer.observe(profileEl.value)
+  if (scaleEl.value) observer.observe(scaleEl.value)
+  if (appsEl.value) observer.observe(appsEl.value)
+})
+
+const stats = [
+  { value: '2001', label: '建立年份', icon: '📅' },
+  { value: '7000万', label: '总资产', icon: '💰' },
+  { value: '20亩+', label: '占地面积', icon: '📐' },
+  { value: '1000吨', label: '年产能', icon: '⚙️' },
+]
 
 const heroSlides = [
   {
@@ -197,12 +255,12 @@ const heroSlides = [
 ]
 
 const applications = [
-  { label: '内衣', icon: '👙' },
-  { label: '泳衣', icon: '🏊' },
-  { label: '运动服', icon: '⚽' },
-  { label: '鞋包', icon: '👟' },
-  { label: '塑身衣', icon: '🩱' },
-  { label: '汽车内饰', icon: '🚗' },
+  { label: '内衣', icon: '👙', desc: '舒适透气' },
+  { label: '泳衣', icon: '🏊', desc: '防水耐用' },
+  { label: '运动服', icon: '⚽', desc: '弹力伸缩' },
+  { label: '鞋包', icon: '👟', desc: '高强耐磨' },
+  { label: '塑身衣', icon: '🩱', desc: '贴身塑形' },
+  { label: '汽车内饰', icon: '🚗', desc: '阻燃抗老化' },
 ]
 
 const qualityItems = [
@@ -222,3 +280,58 @@ const certs = [
   { name: 'SGS 产品检测报告', desc: '2020年SGS检测，涵盖多款产品', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/certs/cert6.webp' },
 ]
 </script>
+
+<style scoped>
+/* 滚动触发动画 */
+.reveal-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+}
+.reveal-section.is-visible .reveal-left,
+.reveal-section.is-visible .reveal-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 数字滚动动画 */
+.stat-card {
+  opacity: 0;
+  animation: statFadeIn 0.6s ease forwards;
+}
+@keyframes statFadeIn {
+  to { opacity: 1; }
+}
+.stat-number {
+  display: inline-block;
+  animation: numberPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+@keyframes numberPop {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* 业务范围卡片入场动画 */
+.app-card {
+  opacity: 0;
+  animation: cardFadeIn 0.5s ease forwards;
+}
+@keyframes cardFadeIn {
+  0% { opacity: 0; transform: translateY(20px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+</style>

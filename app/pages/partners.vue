@@ -1,7 +1,7 @@
 <template>
   <div class="pt-20">
     <section class="relative h-[300px] md:h-[350px]">
-      <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/company/cover3.webp" alt="合作客户" class="absolute inset-0 w-full h-full object-cover" />
+      <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/company/cover3.webp" alt="合作客户" class="absolute inset-0 w-full h-full object-cover"  loading="lazy">
       <div class="absolute inset-0 bg-black/35" />
       <div class="absolute inset-0 z-10 flex items-center justify-center text-center text-white px-4">
         <div>
@@ -25,7 +25,7 @@
             :class="{ 'md:flex-row-reverse': idx % 2 === 1 }">
             <!-- 图片 -->
             <div class="md:w-1/2 overflow-hidden">
-              <img :src="partner.img" :alt="partner.title" class="w-full h-64 md:h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img :src="partner.img" :alt="partner.title" class="w-full h-64 md:h-full object-cover group-hover:scale-105 transition-transform duration-500"  loading="lazy">
             </div>
             <!-- 文字 -->
             <div class="md:w-1/2 p-6 md:p-8 flex flex-col justify-center">

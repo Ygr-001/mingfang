@@ -2,7 +2,7 @@
   <div class="pt-20">
     <!-- Banner -->
     <section class="relative h-[300px] md:h-[350px]">
-      <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/company/cover1.webp" alt="关于明芳" class="absolute inset-0 w-full h-full object-cover" />
+      <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/company/cover1.webp" alt="关于明芳" class="absolute inset-0 w-full h-full object-cover"  loading="lazy">
       <div class="absolute inset-0 bg-black/35" />
       <div class="absolute inset-0 z-10 flex items-center justify-center text-center text-white px-4">
         <div>
@@ -55,7 +55,7 @@
         <div class="grid gap-8 mt-10">
           <!-- 生产车间 -->
           <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
-            <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab3.webp" alt="生产车间" class="w-full object-cover" style="max-height:400px" />
+            <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab3.webp" alt="生产车间" class="w-full object-cover" style="max-height:400px"  loading="lazy">
             <div class="p-6 md:p-8">
               <h3 class="font-bold text-xl text-gray-900 mb-2">生产车间</h3>
               <p class="text-sm text-gray-500 leading-relaxed">
@@ -66,7 +66,7 @@
 
           <!-- 染坊 -->
           <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
-            <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab5.webp" alt="染坊" class="w-full object-cover" style="max-height:400px" />
+            <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab5.webp" alt="染坊" class="w-full object-cover" style="max-height:400px"  loading="lazy">
             <div class="p-6 md:p-8">
               <h3 class="font-bold text-xl text-gray-900 mb-2">染坊</h3>
               <p class="text-sm text-gray-500 leading-relaxed">
@@ -77,7 +77,7 @@
 
           <!-- 实验检测 -->
           <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
-            <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab1.webp" alt="实验检测" class="w-full object-cover" style="max-height:350px" />
+            <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab1.webp" alt="实验检测" class="w-full object-cover" style="max-height:350px"  loading="lazy">
             <div class="p-6 md:p-8">
               <h3 class="font-bold text-xl text-gray-900 mb-2">实验检测</h3>
               <p class="text-sm text-gray-500 leading-relaxed">
@@ -88,7 +88,7 @@
 
           <!-- 质检室 -->
           <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
-            <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab2.webp" alt="质检室" class="w-full object-cover" style="max-height:400px" />
+            <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab2.webp" alt="质检室" class="w-full object-cover" style="max-height:400px"  loading="lazy">
             <div class="p-6 md:p-8">
               <h3 class="font-bold text-xl text-gray-900 mb-2">质检室</h3>
               <p class="text-sm text-gray-500 leading-relaxed">
@@ -99,7 +99,7 @@
 
           <!-- 样板间 -->
           <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
-            <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab4.webp" alt="样板间" class="w-full object-cover" style="max-height:400px" />
+            <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab4.webp" alt="样板间" class="w-full object-cover" style="max-height:400px"  loading="lazy">
             <div class="p-6 md:p-8">
               <h3 class="font-bold text-xl text-gray-900 mb-2">样板间</h3>
               <p class="text-sm text-gray-500 leading-relaxed">
@@ -121,7 +121,7 @@
             class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow cursor-pointer"
             @click="openImage(cert.img)">
             <div class="aspect-[3/4] overflow-hidden bg-gray-50">
-              <img :src="cert.img" :alt="cert.name" class="w-full h-full object-contain hover:scale-105 transition-transform duration-300" />
+              <img :src="cert.img" :alt="cert.name" class="w-full h-full object-contain hover:scale-105 transition-transform duration-300"  loading="lazy">
             </div>
             <div class="p-4 text-center">
               <h3 class="font-bold text-gray-900 text-sm">{{ cert.name }}</h3>
@@ -133,7 +133,7 @@
 
       <!-- 大图弹窗 -->
       <div v-if="lightboxImg" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/80" @click="lightboxImg = ''">
-        <img :src="lightboxImg" alt="证书大图" class="max-w-[90vw] max-h-[90vh] object-contain rounded-lg" />
+        <img :src="lightboxImg" alt="证书大图" class="max-w-[90vw] max-h-[90vh] object-contain rounded-lg"  loading="lazy">
         <button class="absolute top-4 right-4 text-white text-3xl hover:text-gray-300">×</button>
       </div>
     </section>
