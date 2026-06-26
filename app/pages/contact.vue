@@ -40,8 +40,8 @@
                 <div>
                   <p class="text-xs text-gray-400 mb-0.5">联系电话</p>
                   <p class="text-sm font-medium text-gray-900">138 2872 9265 <span class="text-xs text-gray-400 font-normal">夏小姐</span></p>
-                  <p class="text-sm font-medium text-gray-900">186 6581 9316 <span class="text-xs text-gray-400 font-normal">江先生</span></p>
-                  <p class="text-sm font-medium text-gray-900">133 3293 9771 <span class="text-xs text-gray-400 font-normal">岑先生</span></p>
+                  <p class="text-sm font-medium text-gray-900">186 6581 9316 <span class="text-xs text-gray-400 font-normal">姜先生</span></p>
+                  <p class="text-sm font-medium text-gray-900">133 3293 9771 <span class="text-xs text-gray-400 font-normal">夏涔</span></p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
