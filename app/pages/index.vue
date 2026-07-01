@@ -81,8 +81,15 @@
             <div v-for="(stat, idx) in stats" :key="stat.label"
               class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 stat-card group"
               :style="{ animationDelay: idx * 0.1 + 's' }">
-              <div class="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-transform">
-                <span class="text-xl">{{ stat.icon }}</span>
+              <div class="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <!-- 年份(历) -->
+                <svg v-if="stat.iconKey === 'year'" class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 7V3M16 7V3M3 11h18M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2zM8 15h2v2H8v-2zM14 15h2v2h-2v-2z"/></svg>
+                <!-- 资产(钱币) -->
+                <svg v-else-if="stat.iconKey === 'asset'" class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 6v12M9 9h4.5a2 2 0 010 4H9a2 2 0 000 4h6M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <!-- 面积(量尺) -->
+                <svg v-else-if="stat.iconKey === 'area'" class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 17l6-6 4 4 8-8M14 7h7v7M3 21h18"/></svg>
+                <!-- 产能(齿轮) -->
+                <svg v-else-if="stat.iconKey === 'capacity'" class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10.325 4.317a1 1 0 011.35 0l1.45 1.235a1 1 0 00.9.255l1.872-.31a1 1 0 011.15.815l.31 1.872a1 1 0 00.494.726l1.586.99a1 1 0 01.39 1.27l-.802 1.733a1 1 0 000 .9l.802 1.732a1 1 0 01-.39 1.27l-1.586.99a1 1 0 00-.494.726l-.31 1.873a1 1 0 01-1.15.814l-1.872-.31a1 1 0 00-.9.255l-1.45 1.236a1 1 0 01-1.35 0l-1.45-1.236a1 1 0 00-.9-.255l-1.872.31a1 1 0 01-1.15-.814l-.31-1.873a1 1 0 00-.494-.726l-1.586-.99a1 1 0 01-.39-1.27l.802-1.732a1 1 0 000-.9l-.802-1.732a1 1 0 01.39-1.27l1.586-.99a1 1 0 00.494-.727l.31-1.872a1 1 0 011.15-.815l1.872.31a1 1 0 00.9-.255l1.45-1.235zM12 15a3 3 0 100-6 3 3 0 000 6z"/></svg>
               </div>
               <div class="text-2xl md:text-3xl font-bold text-primary stat-number">{{ stat.value }}</div>
               <div class="text-xs text-gray-500 mt-1">{{ stat.label }}</div>
@@ -117,8 +124,19 @@
             <!-- hover背景渐变 -->
             <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative">
-              <div class="w-16 h-16 mx-auto mb-3 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 group-hover:from-primary group-hover:to-primary-700 transition-all duration-500">
-                <span class="text-3xl group-hover:scale-110 transition-transform inline-block">{{ item.icon }}</span>
+              <div class="w-16 h-16 mx-auto mb-3 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center group-hover:scale-110 group-hover:from-primary group-hover:to-primary-700 transition-all duration-500">
+                <!-- 内衣 -->
+                <svg v-if="item.iconKey === 'underwear'" class="w-8 h-8 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 4l-2 4v3a2 2 0 002 2h10a2 2 0 002-2V8l-2-4H7zM9 4v0M15 4v0M8 13l1 7h6l1-7"/></svg>
+                <!-- 泳衣 -->
+                <svg v-else-if="item.iconKey === 'swimwear'" class="w-8 h-8 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12c0-3 1.5-5 3-6 1 1 2 1.5 3 1.5h4c1 0 2-.5 3-1.5 1.5 1 3 3 3 6 0 4-3.5 7-8 7s-8-3-8-7z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 9.5c.5.5 1 .5 1.5 0M13.5 9.5c.5.5 1 .5 1.5 0"/></svg>
+                <!-- 运动服 -->
+                <svg v-else-if="item.iconKey === 'sportswear'" class="w-8 h-8 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 2L4 6v6l3 2v8h10v-8l3-2V6l-7-4z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 13l2-3 2 3M12 10v6"/></svg>
+                <!-- 鞋包 -->
+                <svg v-else-if="item.iconKey === 'shoes'" class="w-8 h-8 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 17h12a3 3 0 003-3v-1l-3-1-2-3-2 2H8L6 8 4 9l-1 5v3zM3 17v2M6 19h12"/></svg>
+                <!-- 塑身衣 -->
+                <svg v-else-if="item.iconKey === 'shapewear'" class="w-8 h-8 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 3h8l-1 3v3l1 2v8a2 2 0 01-2 2h-4a2 2 0 01-2-2v-8l1-2V6L8 3zM10 8h4M10 12h4"/></svg>
+                <!-- 汽车内饰 -->
+                <svg v-else-if="item.iconKey === 'automotive'" class="w-8 h-8 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l1.5-5h11L19 13M5 13v5a1 1 0 001 1h1a1 1 0 001-1v-1h8v1a1 1 0 001 1h1a1 1 0 001-1v-5M5 13h14M8 16.5h.01M16 16.5h.01"/><circle cx="12" cy="14.5" r="1.5"/></svg>
               </div>
               <p class="text-sm font-semibold text-gray-700 group-hover:text-primary transition-colors">{{ item.label }}</p>
               <p class="text-[10px] text-gray-400 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">{{ item.desc }}</p>
@@ -221,10 +239,10 @@ onMounted(() => {
 })
 
 const stats = [
-  { value: '2001', label: '建立年份', icon: '📅' },
-  { value: '7000万', label: '总资产', icon: '💰' },
-  { value: '20亩+', label: '占地面积', icon: '📐' },
-  { value: '1000吨', label: '年产能', icon: '⚙️' },
+  { value: '2001', label: '建立年份', iconKey: 'year' },
+  { value: '7000万', label: '总资产', iconKey: 'asset' },
+  { value: '20亩+', label: '占地面积', iconKey: 'area' },
+  { value: '1000吨', label: '年产能', iconKey: 'capacity' },
 ]
 
 const heroSlides = [
@@ -255,12 +273,12 @@ const heroSlides = [
 ]
 
 const applications = [
-  { label: '内衣', icon: '👙', desc: '舒适透气' },
-  { label: '泳衣', icon: '🏊', desc: '防水耐用' },
-  { label: '运动服', icon: '⚽', desc: '弹力伸缩' },
-  { label: '鞋包', icon: '👟', desc: '高强耐磨' },
-  { label: '塑身衣', icon: '🩱', desc: '贴身塑形' },
-  { label: '汽车内饰', icon: '🚗', desc: '阻燃抗老化' },
+  { label: '内衣', iconKey: 'underwear', desc: '舒适透气' },
+  { label: '泳衣', iconKey: 'swimwear', desc: '防水耐用' },
+  { label: '运动服', iconKey: 'sportswear', desc: '弹力伸缩' },
+  { label: '鞋包', iconKey: 'shoes', desc: '高强耐磨' },
+  { label: '塑身衣', iconKey: 'shapewear', desc: '贴身塑形' },
+  { label: '汽车内饰', iconKey: 'automotive', desc: '阻燃抗老化' },
 ]
 
 const qualityItems = [

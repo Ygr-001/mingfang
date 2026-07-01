@@ -14,9 +14,10 @@
 
     <section class="py-16 md:py-24 bg-gray-50">
       <div class="container-custom">
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div v-for="p in products" :key="p.name"
-            class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group">
+        <div ref="gridEl" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 products-grid" :class="{ 'is-visible': gridVisible }">
+          <div v-for="(p, idx) in products" :key="p.name"
+            class="product-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col group"
+            :style="{ animationDelay: idx * 0.08 + 's' }">
             <!-- 图片 - 点击查看大图 -->
             <div class="aspect-[3/2] overflow-hidden relative cursor-pointer" @click.stop="openImage(p.img)">
               <img :src="p.img" :alt="p.name" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"  loading="lazy">
@@ -142,6 +143,25 @@ function openImage(img: string) {
   lightboxImg.value = img
 }
 
+// 滚动触发卡片入场
+const gridEl = ref<HTMLElement | null>(null)
+const gridVisible = ref(false)
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          gridVisible.value = true
+          observer.unobserve(entry.target)
+        }
+      })
+    },
+    { threshold: 0.1 }
+  )
+  if (gridEl.value) observer.observe(gridEl.value)
+})
+
 const products = [
   {
     name: '高延伸长丝线', en: 'Eloflex', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod11.webp',
@@ -237,12 +257,44 @@ const products = [
 </script>
 
 <style scoped>
+/* 滚动入场 */
+.products-grid {
+  opacity: 1;
+}
+.products-grid .product-card {
+  opacity: 0;
+  transform: translateY(30px) scale(0.96);
+  animation: productCardIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+@keyframes productCardIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 弹窗淡入 + 缩放 */
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+  transform: scale(0.95);
+}
+
+/* 大图弹窗专属 */
+.fade-enter-active img,
+.fade-leave-active img {
+  transition: transform 0.4s ease;
+}
+.fade-enter-from img,
+.fade-leave-to img {
+  transform: scale(0.9);
 }
 </style>

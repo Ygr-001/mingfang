@@ -54,7 +54,7 @@
         <p class="section-subtitle text-sm md:text-base">先进的染整设备与完善的检测体系，保障每一根纱线的品质</p>
         <div class="grid gap-8 mt-10">
           <!-- 生产车间 -->
-          <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm reveal-section workshop-card">
             <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab3.webp" alt="生产车间" class="w-full object-cover" style="max-height:400px"  loading="lazy">
             <div class="p-6 md:p-8">
               <h3 class="font-bold text-xl text-gray-900 mb-2">生产车间</h3>
@@ -65,7 +65,7 @@
           </div>
 
           <!-- 染坊 - 美化图片布局(左大竖图+右侧多图) -->
-          <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm reveal-section workshop-card">
             <!-- 图片区: 桌面端左右分栏,移动端堆叠 -->
             <div class="grid grid-cols-1 md:grid-cols-5 gap-0">
               <!-- 左侧: 大竖图 (占 2/5) - 视觉焦点 -->
@@ -128,7 +128,7 @@
 
           <!-- 实验检测 - 暂时隐藏(改用上方染坊扩展) -->
           <!--
-          <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm reveal-section workshop-card">
             <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab1.webp" alt="实验检测" class="w-full object-cover" style="max-height:350px"  loading="lazy">
             <div class="p-6 md:p-8">
               <h3 class="font-bold text-xl text-gray-900 mb-2">实验检测</h3>
@@ -140,7 +140,7 @@
           -->
 
           <!-- 质检室 -->
-          <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm reveal-section workshop-card">
             <div class="overflow-hidden bg-gray-50">
               <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab2.webp" alt="质检室" class="w-full h-64 md:h-80 lg:h-96 object-contain hover:scale-105 transition-transform duration-700"  loading="lazy">
             </div>
@@ -156,7 +156,7 @@
           </div>
 
           <!-- 样板间 -->
-          <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm reveal-section workshop-card">
             <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab4.webp" alt="样板间" class="w-full object-cover" style="max-height:400px"  loading="lazy">
             <div class="p-6 md:p-8">
               <h3 class="font-bold text-xl text-gray-900 mb-2">样板间</h3>
@@ -204,6 +204,22 @@ const lightboxImg = ref('')
 function openImage(img: string) {
   lightboxImg.value = img
 }
+
+// 滚动触发动画
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+          observer.unobserve(entry.target)
+        }
+      })
+    },
+    { threshold: 0.1 }
+  )
+  document.querySelectorAll('.workshop-card').forEach((el) => observer.observe(el))
+})
 
 const timeline = [
   { year: '1997', title: '创立明芳线厂', desc: '明芳线厂正式成立，开启专业纱线制造之路' },
@@ -284,4 +300,21 @@ const certItems = [
 .h-18 {
   height: 4.5rem;
 }
+
+/* 染坊/质检/样板间等区块滚动入场 */
+.workshop-card {
+  opacity: 0;
+  transform: translateY(30px) scale(0.97);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.workshop-card.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+/* 依次入场, 每张延迟 0.1s */
+.workshop-card:nth-child(1) { transition-delay: 0.05s; }
+.workshop-card:nth-child(2) { transition-delay: 0.15s; }
+.workshop-card:nth-child(3) { transition-delay: 0.25s; }
+.workshop-card:nth-child(4) { transition-delay: 0.35s; }
+.workshop-card:nth-child(5) { transition-delay: 0.45s; }
 </style>
