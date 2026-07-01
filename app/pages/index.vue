@@ -15,10 +15,10 @@
           <div class="relative h-full flex items-center justify-center text-center text-white px-4"
             :style="{ backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(${slide.img})`, backgroundSize: 'cover', backgroundPosition: 'center' }">
             <div class="max-w-2xl relative z-10">
-              <p class="text-blue-200 text-xs md:text-sm tracking-[0.2em] md:tracking-[0.3em] mb-3 md:mb-4 uppercase">{{ slide.tag }}</p>
-              <h2 class="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-5 leading-tight">{{ slide.title }}</h2>
-              <p class="text-sm md:text-base text-gray-200 mb-6 md:mb-8">{{ slide.description }}</p>
-              <NuxtLink :to="slide.link" class="btn-primary text-sm md:text-base">{{ slide.btnText }}</NuxtLink>
+              <p class="hero-tag text-blue-200 text-xs md:text-sm tracking-[0.2em] md:tracking-[0.3em] mb-3 md:mb-4 uppercase">{{ slide.tag }}</p>
+              <h2 class="hero-title text-3xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight tracking-wide">{{ slide.title }}</h2>
+              <p class="hero-desc text-sm md:text-base lg:text-lg text-gray-200 mb-6 md:mb-8">{{ slide.description }}</p>
+              <NuxtLink :to="slide.link" class="btn-primary hero-cta text-sm md:text-base">{{ slide.btnText }}</NuxtLink>
             </div>
           </div>
         </SwiperSlide>
@@ -351,5 +351,64 @@ const certs = [
 @keyframes cardFadeIn {
   0% { opacity: 0; transform: translateY(20px) scale(0.95); }
   100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Hero 轮播文字入场动画 - swiper每次切换都会重新触发 */
+.swiper-slide-active .hero-tag,
+.swiper-slide-active .hero-title,
+.swiper-slide-active .hero-desc,
+.swiper-slide-active .hero-cta {
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-duration: 0.8s;
+}
+.swiper-slide-active .hero-tag {
+  animation-name: heroTagIn;
+  animation-delay: 0.1s;
+}
+.swiper-slide-active .hero-title {
+  animation-name: heroTitleIn;
+  animation-delay: 0.3s;
+  animation-duration: 1s;
+}
+.swiper-slide-active .hero-desc {
+  animation-name: heroDescIn;
+  animation-delay: 0.6s;
+}
+.swiper-slide-active .hero-cta {
+  animation-name: heroCtaIn;
+  animation-delay: 0.85s;
+}
+@keyframes heroTagIn {
+  0% { opacity: 0; transform: translateY(20px); letter-spacing: 0.1em; }
+  100% { opacity: 1; transform: translateY(0); letter-spacing: normal; }
+}
+@keyframes heroTitleIn {
+  0% { opacity: 0; transform: translateY(40px) scale(0.92); filter: blur(8px); }
+  60% { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+@keyframes heroDescIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroCtaIn {
+  0% { opacity: 0; transform: translateY(15px) scale(0.9); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* 标题文字光泽扫过效果 */
+.hero-title {
+  background: linear-gradient(120deg, #fff 30%, #bfdbfe 50%, #fff 70%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 </style>

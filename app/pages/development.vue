@@ -5,8 +5,8 @@
       <div class="absolute inset-0 bg-black/35" />
       <div class="absolute inset-0 z-10 flex items-center justify-center text-center text-white px-4">
         <div>
-          <p class="text-green-200 text-sm tracking-[0.3em] mb-3 uppercase">Sustainability</p>
-          <h1 class="text-3xl md:text-5xl font-bold mb-2">可持续发展</h1>
+          <p class="text-green-200 text-sm tracking-[0.3em] mb-3 uppercase page-tag">Sustainability</p>
+          <h1 class="text-3xl md:text-5xl font-bold mb-2 page-title">可持续发展</h1>
           <p class="text-base text-gray-200">绿色制造 · 环保再生 · 功能性纱线</p>
         </div>
       </div>

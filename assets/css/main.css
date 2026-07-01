@@ -114,3 +114,60 @@
 .swiper-button-prev {
   color: #1a56db !important;
 }
+
+/* === 页面 H1 标题统一动画 === */
+/* 用法: <h1 class="page-title">标题</h1> */
+.page-title {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  animation: pageTitleIn 0.9s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+.page-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1a56db, #3b82f6, #1a56db);
+  border-radius: 2px;
+  animation: pageTitleLine 1.2s 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+@keyframes pageTitleIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+    filter: blur(4px);
+  }
+  60% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+@keyframes pageTitleLine {
+  0% { width: 0; }
+  100% { width: 60%; }
+}
+@media (min-width: 768px) {
+  @keyframes pageTitleLine {
+    0% { width: 0; }
+    100% { width: 40%; }
+  }
+}
+
+/* 页面 H1 副标题动画 */
+.page-tag {
+  display: inline-block;
+  animation: pageTagIn 0.8s 0.2s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+@keyframes pageTagIn {
+  0% { opacity: 0; transform: translateX(-15px); }
+  100% { opacity: 1; transform: translateX(0); }
+}

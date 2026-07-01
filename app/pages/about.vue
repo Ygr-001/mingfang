@@ -6,8 +6,8 @@
       <div class="absolute inset-0 bg-black/35" />
       <div class="absolute inset-0 z-10 flex items-center justify-center text-center text-white px-4">
         <div>
-          <p class="text-blue-200 text-sm tracking-[0.3em] mb-3 uppercase">About Us</p>
-          <h1 class="text-3xl md:text-5xl font-bold mb-2">关于明芳</h1>
+          <p class="text-blue-200 text-sm tracking-[0.3em] mb-3 uppercase page-tag">About Us</p>
+          <h1 class="text-3xl md:text-5xl font-bold mb-2 page-title">关于明芳</h1>
           <p class="text-base text-gray-200">MING FANG THREADS · SINCE 1997</p>
         </div>
       </div>
