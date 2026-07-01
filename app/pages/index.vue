@@ -14,13 +14,13 @@
         <SwiperSlide v-for="(slide, i) in heroSlides" :key="i" class="h-full">
           <div class="relative h-full flex items-center justify-center text-center text-white px-4"
             :style="{ backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(${slide.img})`, backgroundSize: 'cover', backgroundPosition: 'center' }">
-            <div class="max-w-2xl relative z-10">
-              <p class="hero-tag text-blue-200 text-xs md:text-sm tracking-[0.2em] md:tracking-[0.3em] mb-3 md:mb-4 uppercase">{{ slide.tag }}</p>
-              <h2 class="hero-title text-3xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight tracking-wide">
-                <span v-for="(ch, ci) in [...slide.title]" :key="ci" class="hero-char" :style="{ animationDelay: (0.3 + ci * 0.06) + 's' }">{{ ch }}</span>
+            <div class="max-w-3xl relative z-10">
+              <p class="hero-tag text-blue-200 text-xs md:text-base tracking-[0.25em] md:tracking-[0.4em] mb-4 md:mb-6 uppercase font-semibold">{{ slide.tag }}</p>
+              <h2 class="hero-title text-4xl md:text-6xl lg:text-8xl font-black mb-6 md:mb-8 leading-[1.1] tracking-tight">
+                {{ slide.title }}
               </h2>
-              <p class="hero-desc text-sm md:text-base lg:text-lg text-gray-200 mb-6 md:mb-8">{{ slide.description }}</p>
-              <NuxtLink :to="slide.link" class="btn-primary hero-cta text-sm md:text-base">{{ slide.btnText }}</NuxtLink>
+              <p class="hero-desc text-base md:text-lg lg:text-xl text-gray-100 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed">{{ slide.description }}</p>
+              <NuxtLink :to="slide.link" class="btn-primary hero-cta text-sm md:text-base px-8 py-3.5 shadow-xl">{{ slide.btnText }}</NuxtLink>
             </div>
           </div>
         </SwiperSlide>
@@ -370,78 +370,94 @@ const certs = [
 
 /* Hero 轮播文字入场动画 - swiper每次切换都会重新触发 */
 .swiper-slide-active .hero-tag,
+.swiper-slide-active .hero-title,
 .swiper-slide-active .hero-desc,
 .swiper-slide-active .hero-cta {
   opacity: 0;
   animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  animation-duration: 0.8s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);  /* easeOutExpo, 更柔和 */
 }
 .swiper-slide-active .hero-tag {
-  animation-name: heroTagIn;
-  animation-delay: 0.1s;
+  animation: heroTagIn 0.9s 0.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.swiper-slide-active .hero-title {
+  animation: heroTitleIn 1.2s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 .swiper-slide-active .hero-desc {
-  animation-name: heroDescIn;
-  animation-delay: 0.6s;
+  animation: heroDescIn 0.9s 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 .swiper-slide-active .hero-cta {
-  animation-name: heroCtaIn;
-  animation-delay: 0.85s;
+  animation: heroCtaIn 0.8s 0.95s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
+
 @keyframes heroTagIn {
-  0% { opacity: 0; transform: translateY(20px); letter-spacing: 0.1em; }
-  100% { opacity: 1; transform: translateY(0); letter-spacing: normal; }
+  0% { opacity: 0; transform: translateY(20px); letter-spacing: 0.3em; }
+  100% { opacity: 1; transform: translateY(0); letter-spacing: 0.25em; }
 }
+
+@keyframes heroTitleIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.94);
+    filter: blur(10px);
+  }
+  60% { filter: blur(0); }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
 @keyframes heroDescIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% { opacity: 0; transform: translateY(25px); filter: blur(4px); }
+  60% { filter: blur(0); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
+
 @keyframes heroCtaIn {
-  0% { opacity: 0; transform: translateY(15px) scale(0.9); }
+  0% { opacity: 0; transform: translateY(15px) scale(0.92); }
   100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* Hero 标题 - 字符依次弹入 */
-.swiper-slide-active .hero-char {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(50px) rotateX(-80deg) scale(0.4);
-  transform-origin: 50% 100%;
-  animation: heroCharPop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
-}
-@keyframes heroCharPop {
-  0% {
-    opacity: 0;
-    transform: translateY(50px) rotateX(-80deg) scale(0.4);
-  }
-  60% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) rotateX(0) scale(1);
-  }
-}
-
-/* 标题文字光泽扫过效果 - 用 ::before 伪元素做光带 */
+/* Hero 标题 - 整段渐入 + 下划线展开(像 page-title) */
 .hero-title {
   position: relative;
-  perspective: 800px;
-  transform-style: preserve-3d;
-  overflow: hidden;
+  display: inline-block;
+  padding-bottom: 0.75rem;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
 }
+.hero-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #60a5fa, #93c5fd, #60a5fa, transparent);
+  border-radius: 2px;
+  animation: heroTitleLine 1.2s 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  box-shadow: 0 0 12px rgba(96, 165, 250, 0.6);
+}
+@keyframes heroTitleLine {
+  0% { width: 0; opacity: 0; }
+  50% { opacity: 1; }
+  100% { width: 70%; opacity: 1; }
+}
+
+/* Hero 标题 - 光泽扫过(光带) */
 .hero-title::before {
   content: '';
   position: absolute;
   top: 0;
   left: -100%;
-  width: 60%;
+  width: 50%;
   height: 100%;
-  background: linear-gradient(120deg, transparent 0%, rgba(191, 219, 254, 0.5) 50%, transparent 100%);
+  background: linear-gradient(120deg, transparent 0%, rgba(191, 219, 254, 0.6) 50%, transparent 100%);
   transform: skewX(-20deg);
   pointer-events: none;
-  animation: titleShine 4s ease-in-out 1.5s infinite;
+  animation: titleShine 5s ease-in-out 1.5s infinite;
 }
 @keyframes titleShine {
   0% { left: -100%; }
