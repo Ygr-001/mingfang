@@ -144,7 +144,7 @@ function openImage(img: string) {
 
 const products = [
   {
-    name: '涤纶蓬松线', en: 'Textured Polyester', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod01.webp',
+    name: '涤纶蓬松线', en: 'Textured Polyester', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod11.webp',
     desc: '覆盖效果佳、强力性好、手感柔软光滑、耐化学性强、颜色选择广泛。适用于内衣、泳衣、针织品、家纺和童装。符合OEKO-TEX标准100认证。',
     features: ['覆盖效果佳', '强力性好', '手感柔软', '耐化学性', '颜色选择广泛'],
     apps: ['内衣', '泳衣', '女士内衣', '针织品', '家纺', '童装'],
@@ -198,7 +198,7 @@ const products = [
     specs: [['Tex 45', '210D/2', '22.9', '26-36'], ['Tex 70', '210D/3', '23.8', '25-35'], ['Tex 90', '280D/3', '25.6', '25-35'], ['Tex 135', '420D/3', '28.8', '25-34'], ['Tex 210', '630D/3', '211.2', '24-33']],
   },
   {
-    name: '涤纶短纤', en: 'Staple Spun Polyester', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod11.webp',
+    name: '涤纶短纤', en: 'Staple Spun Polyester', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod01.webp',
     desc: '耐磨性高、强力缝口外观美观、耐化学性。缝口平滑、避免跳针、生产效率高。色牢度高，适用于高速缝纫。颜色选择广泛。',
     features: ['耐磨性高', '色牢度高', '缝口平滑', '避免跳针', '高速缝纫'],
     apps: ['各类服装', '家纺', '鞋帽', '工业用线'],

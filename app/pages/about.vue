@@ -70,12 +70,34 @@
             <div class="p-6 md:p-8">
               <h3 class="font-bold text-xl text-gray-900 mb-2">染坊</h3>
               <p class="text-sm text-gray-500 leading-relaxed">
-                拥有设备1KG-500KG不同型号染色机40余台，满足大量生产需求。从打样到大货染色，快速响应客户颜色需求，确保每批次颜色一致性。
+                拥有设备1 Kg-1000Kg 不同型号染色机 40 余台，满足大量生产需求。从打样到大货染色，快速响应客户颜色需求，确保每批次颜色一致性。
               </p>
             </div>
           </div>
 
-          <!-- 实验检测 -->
+          <!-- 染坊扩展 - 染色机特写 + 车间全景 -->
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-1">
+              <div class="overflow-hidden">
+                <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab6.webp" alt="大染色机内部 - 白色纱线线轴" class="w-full h-72 md:h-80 object-cover hover:scale-105 transition-transform duration-500"  loading="lazy">
+              </div>
+              <div class="overflow-hidden">
+                <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab7.webp" alt="染色机内部特写 + 车间全景" class="w-full h-72 md:h-80 object-cover hover:scale-105 transition-transform duration-500"  loading="lazy">
+              </div>
+              <div class="overflow-hidden">
+                <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab8.webp" alt="染坊车间多台染缸 + 大型染色机" class="w-full h-72 md:h-80 object-cover hover:scale-105 transition-transform duration-500"  loading="lazy">
+              </div>
+            </div>
+            <div class="p-6 md:p-8">
+              <h3 class="font-bold text-xl text-gray-900 mb-2">染坊扩展</h3>
+              <p class="text-sm text-gray-500 leading-relaxed">
+                从打样小缸到 1 吨级大缸，覆盖全规格染色需求。多台染色机并线运行，可同时处理多批次颜色，确保大货交期。
+              </p>
+            </div>
+          </div>
+
+          <!-- 实验检测 - 暂时隐藏(改用上方染坊扩展) -->
+          <!--
           <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
             <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab1.webp" alt="实验检测" class="w-full object-cover" style="max-height:350px"  loading="lazy">
             <div class="p-6 md:p-8">
@@ -85,6 +107,7 @@
               </p>
             </div>
           </div>
+          -->
 
           <!-- 质检室 -->
           <div class="bg-white rounded-2xl overflow-hidden shadow-sm">

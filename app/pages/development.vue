@@ -146,7 +146,7 @@ const ecoProducts = [
     cert: 'OEKO-TEX Standard 100 认证',
   },
   {
-    name: '三防线', en: 'Three Defense Thread', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod04.webp',
+    name: '三防线', en: 'Three Defense Thread', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod06.webp',
     desc: '防泼水、防油、易去污功能。经三防助剂处理后具有优异的防水、防油、防污功能，可长期保持干爽和洁净。',
     features: ['防泼水', '防油', '易去污', '抗污渍'],
     apps: ['户外用品', '防护服', '功能性服装'],
@@ -160,7 +160,7 @@ const ecoProducts = [
     cert: '',
   },
   {
-    name: '水溶线', en: 'Water Soluble Thread', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod06.webp',
+    name: '水溶线', en: 'Water Soluble Thread', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod04.webp',
     desc: '绿色环保功能性纱线，遇水溶解、无污染、无残留。水溶呈无色透明状，短时间内能自然生物降解。适用于绣花、缝纫、拼缝等。',
     features: ['无污染', '遇水溶解', '生物降解', '应用广泛'],
     apps: ['绣花定位', '临时缝纫', '拼缝固定'],
