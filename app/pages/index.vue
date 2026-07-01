@@ -446,21 +446,4 @@ const certs = [
   100% { width: 70%; opacity: 1; }
 }
 
-/* Hero 标题 - 光泽扫过(光带) */
-.hero-title::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(120deg, transparent 0%, rgba(191, 219, 254, 0.6) 50%, transparent 100%);
-  transform: skewX(-20deg);
-  pointer-events: none;
-  animation: titleShine 5s ease-in-out 1.5s infinite;
-}
-@keyframes titleShine {
-  0% { left: -100%; }
-  50%, 100% { left: 200%; }
-}
 </style>
