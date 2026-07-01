@@ -3,12 +3,12 @@
     <!-- Hero Banner -->
     <section class="relative h-[500px] md:h-[650px] overflow-hidden">
       <Swiper
-        :modules="[SwiperAutoplay, SwiperPagination, SwiperNavigation]"
+        :modules="[SwiperAutoplay]"
         :slides-per-view="1"
         :loop="true"
         :autoplay="{ delay: 5000, disableOnInteraction: false }"
-        :pagination="{ clickable: true }"
-        :navigation="true"
+        :pagination="false"
+        :navigation="false"
         class="h-full"
       >
         <SwiperSlide v-for="(slide, i) in heroSlides" :key="i" class="h-full">
