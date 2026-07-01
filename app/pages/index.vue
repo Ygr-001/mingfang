@@ -16,7 +16,9 @@
             :style="{ backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(${slide.img})`, backgroundSize: 'cover', backgroundPosition: 'center' }">
             <div class="max-w-2xl relative z-10">
               <p class="hero-tag text-blue-200 text-xs md:text-sm tracking-[0.2em] md:tracking-[0.3em] mb-3 md:mb-4 uppercase">{{ slide.tag }}</p>
-              <h2 class="hero-title text-3xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight tracking-wide">{{ slide.title }}</h2>
+              <h2 class="hero-title text-3xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight tracking-wide">
+                <span v-for="(ch, ci) in [...slide.title]" :key="ci" class="hero-char" :style="{ animationDelay: (0.3 + ci * 0.06) + 's' }">{{ ch }}</span>
+              </h2>
               <p class="hero-desc text-sm md:text-base lg:text-lg text-gray-200 mb-6 md:mb-8">{{ slide.description }}</p>
               <NuxtLink :to="slide.link" class="btn-primary hero-cta text-sm md:text-base">{{ slide.btnText }}</NuxtLink>
             </div>
@@ -368,7 +370,6 @@ const certs = [
 
 /* Hero 轮播文字入场动画 - swiper每次切换都会重新触发 */
 .swiper-slide-active .hero-tag,
-.swiper-slide-active .hero-title,
 .swiper-slide-active .hero-desc,
 .swiper-slide-active .hero-cta {
   opacity: 0;
@@ -379,11 +380,6 @@ const certs = [
 .swiper-slide-active .hero-tag {
   animation-name: heroTagIn;
   animation-delay: 0.1s;
-}
-.swiper-slide-active .hero-title {
-  animation-name: heroTitleIn;
-  animation-delay: 0.3s;
-  animation-duration: 1s;
 }
 .swiper-slide-active .hero-desc {
   animation-name: heroDescIn;
@@ -397,11 +393,6 @@ const certs = [
   0% { opacity: 0; transform: translateY(20px); letter-spacing: 0.1em; }
   100% { opacity: 1; transform: translateY(0); letter-spacing: normal; }
 }
-@keyframes heroTitleIn {
-  0% { opacity: 0; transform: translateY(40px) scale(0.92); filter: blur(8px); }
-  60% { opacity: 1; filter: blur(0); }
-  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
-}
 @keyframes heroDescIn {
   0% { opacity: 0; transform: translateY(20px); }
   100% { opacity: 1; transform: translateY(0); }
@@ -411,17 +402,49 @@ const certs = [
   100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* 标题文字光泽扫过效果 */
-.hero-title {
-  background: linear-gradient(120deg, #fff 30%, #bfdbfe 50%, #fff 70%);
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shimmer 4s ease-in-out infinite;
+/* Hero 标题 - 字符依次弹入 */
+.swiper-slide-active .hero-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(50px) rotateX(-80deg) scale(0.4);
+  transform-origin: 50% 100%;
+  animation: heroCharPop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
-@keyframes shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+@keyframes heroCharPop {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) rotateX(-80deg) scale(0.4);
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0) scale(1);
+  }
+}
+
+/* 标题文字光泽扫过效果 - 用 ::before 伪元素做光带 */
+.hero-title {
+  position: relative;
+  perspective: 800px;
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+.hero-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent 0%, rgba(191, 219, 254, 0.5) 50%, transparent 100%);
+  transform: skewX(-20deg);
+  pointer-events: none;
+  animation: titleShine 4s ease-in-out 1.5s infinite;
+}
+@keyframes titleShine {
+  0% { left: -100%; }
+  50%, 100% { left: 200%; }
 }
 </style>

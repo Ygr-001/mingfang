@@ -27,7 +27,6 @@
           <div v-for="(p, idx) in ecoProducts" :key="p.name"
             class="lift-card product-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col group"
             :style="{ animationDelay: idx * 0.08 + 's' }">
-            :style="{ animationDelay: idx * 0.08 + 's' }">
             <!-- 图片 - 点击查看大图 -->
             <div class="aspect-[3/2] overflow-hidden relative cursor-pointer" @click.stop="openImage(p.img)">
               <img :src="p.img" :alt="p.name" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"  loading="lazy">
