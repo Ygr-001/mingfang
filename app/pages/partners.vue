@@ -12,16 +12,17 @@
       </div>
     </section>
 
-    <section class="py-16 md:py-24">
+    <section class="py-16 md:py-24 section-bg-mesh">
       <div class="container-custom max-w-5xl">
-        <div class="text-center max-w-3xl mx-auto mb-12">
-          <h2 class="section-title">合作客户</h2>
+        <div class="section-heading">
+          <span class="section-eyebrow">Our Partners</span>
+          <h2 class="section-title mt-3">合作客户</h2>
           <p class="section-subtitle text-sm md:text-base">与众多国际知名品牌建立长期合作关系，产品远销全球</p>
         </div>
 
         <div class="space-y-8">
           <div v-for="(partner, idx) in partners" :key="partner.title"
-            class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col md:flex-row group reveal-section"
+            class="lift-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col md:flex-row group reveal-section"
             :class="[{ 'md:flex-row-reverse': idx % 2 === 1 }, { 'is-visible': visible }]"
             :style="{ transitionDelay: idx * 0.12 + 's' }">
             <!-- 图片 -->

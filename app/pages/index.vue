@@ -76,10 +76,10 @@
             </p>
           </div>
 
-          <!-- 数据卡片 - 数字动画 -->
+          <!-- 数据卡片 - 数字滚动 count-up -->
           <div class="relative grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             <div v-for="(stat, idx) in stats" :key="stat.label"
-              class="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 stat-card group"
+              class="lift-card bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 stat-card group"
               :style="{ animationDelay: idx * 0.1 + 's' }">
               <div class="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center group-hover:scale-110 transition-transform">
                 <!-- 年份(历) -->
@@ -91,7 +91,7 @@
                 <!-- 产能(齿轮) -->
                 <svg v-else-if="stat.iconKey === 'capacity'" class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10.325 4.317a1 1 0 011.35 0l1.45 1.235a1 1 0 00.9.255l1.872-.31a1 1 0 011.15.815l.31 1.872a1 1 0 00.494.726l1.586.99a1 1 0 01.39 1.27l-.802 1.733a1 1 0 000 .9l.802 1.732a1 1 0 01-.39 1.27l-1.586.99a1 1 0 00-.494.726l-.31 1.873a1 1 0 01-1.15.814l-1.872-.31a1 1 0 00-.9.255l-1.45 1.236a1 1 0 01-1.35 0l-1.45-1.236a1 1 0 00-.9-.255l-1.872.31a1 1 0 01-1.15-.814l-.31-1.873a1 1 0 00-.494-.726l-1.586-.99a1 1 0 01-.39-1.27l.802-1.732a1 1 0 000-.9l-.802-1.732a1 1 0 01.39-1.27l1.586-.99a1 1 0 00.494-.727l.31-1.872a1 1 0 011.15-.815l1.872.31a1 1 0 00.9-.255l1.45-1.235zM12 15a3 3 0 100-6 3 3 0 000 6z"/></svg>
               </div>
-              <div class="text-2xl md:text-3xl font-bold text-primary stat-number">{{ stat.value }}</div>
+              <div :ref="el => statRefs[idx] = el as HTMLElement" class="stat-card-num">{{ stat.value }}</div>
               <div class="text-xs text-gray-500 mt-1">{{ stat.label }}</div>
             </div>
           </div>
@@ -108,10 +108,10 @@
     </section>
 
     <!-- 业务范围 -->
-    <section class="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+    <section class="py-16 md:py-24 section-bg-mesh">
       <div class="container-custom">
-        <div ref="appsEl" class="text-center mb-12 reveal-section" :class="{ 'is-visible': appsVisible }">
-          <span class="text-primary font-semibold tracking-widest text-xs uppercase">Business Scope</span>
+        <div ref="appsEl" class="section-heading reveal-section" :class="{ 'is-visible': appsVisible }">
+          <span class="section-eyebrow">Business Scope</span>
           <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mt-3 mb-3">业务范围</h2>
           <p class="text-gray-500 text-sm max-w-2xl mx-auto">
             开发内衣、泳衣、运动服、鞋包、塑身衣和汽车内饰的纱线辅料
@@ -119,7 +119,7 @@
         </div>
         <div class="grid grid-cols-3 md:grid-cols-6 gap-4">
           <div v-for="(item, idx) in applications" :key="item.label"
-            class="app-card group bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 cursor-pointer overflow-hidden relative"
+            class="lift-card app-card group bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 cursor-pointer overflow-hidden relative"
             :style="{ animationDelay: idx * 0.08 + 's' }">
             <!-- hover背景渐变 -->
             <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -147,13 +147,16 @@
     </section>
 
     <!-- 品质保障 - 用关于明芳里的车间实验室图片 -->
-    <section class="py-16 md:py-24">
+    <section class="py-16 md:py-24 section-bg-mesh">
       <div class="container-custom max-w-5xl">
-        <h2 class="section-title">品质保障</h2>
-        <p class="section-subtitle text-sm md:text-base">每款产品严格抽样检测，完整品质控制体系</p>
+        <div class="section-heading">
+          <span class="section-eyebrow">Quality Assurance</span>
+          <h2 class="section-title mt-3">品质保障</h2>
+          <p class="section-subtitle text-sm md:text-base">每款产品严格抽样检测，完整品质控制体系</p>
+        </div>
         <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mt-10">
           <NuxtLink v-for="item in qualityItems" :key="item.title" to="/about#workshop"
-            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 group">
+            class="lift-card bg-white rounded-xl overflow-hidden shadow-sm transition-all hover:-translate-y-1 group">
             <div class="aspect-[3/2] overflow-hidden">
               <img :src="item.img" :alt="item.title" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"  loading="lazy">
             </div>
@@ -169,13 +172,16 @@
     </section>
 
     <!-- 安全认证 - 点击查看大图 -->
-    <section class="py-16 md:py-24 bg-gray-50">
+    <section class="py-16 md:py-24 bg-gray-50 section-bg-grid">
       <div class="container-custom max-w-5xl">
-        <h2 class="section-title">安全认证</h2>
-        <p class="section-subtitle text-sm md:text-base">通过多项国际权威检测认证，产品符合婴儿一级安全标准（点击图片查看大图）</p>
-        <div class="grid grid-cols-3 md:grid-cols-6 gap-4 mt-10">
+        <div class="section-heading">
+          <span class="section-eyebrow">Safety Certification</span>
+          <h2 class="section-title mt-3">安全认证</h2>
+          <p class="section-subtitle text-sm md:text-base">通过多项国际权威检测认证，产品符合婴儿一级安全标准（点击图片查看大图）</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-10">
           <div v-for="cert in certs" :key="cert.name"
-            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 cursor-pointer"
+            class="lift-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 cursor-pointer"
             @click="openImage(cert.img)">
             <div class="aspect-[3/4] overflow-hidden bg-gray-50">
               <img :src="cert.img" :alt="cert.name" class="w-full h-full object-contain p-1 hover:scale-105 transition-transform duration-300"  loading="lazy">
@@ -244,6 +250,13 @@ const stats = [
   { value: '20亩+', label: '占地面积', iconKey: 'area' },
   { value: '1000吨', label: '年产能', iconKey: 'capacity' },
 ]
+
+// 数字滚动 count-up - 4个数字独立动画
+const statRefs = ref<(HTMLElement | null)[]>([null, null, null, null])
+useCountUp(computed(() => statRefs.value[0]), stats[0].value)
+useCountUp(computed(() => statRefs.value[1]), stats[1].value)
+useCountUp(computed(() => statRefs.value[2]), stats[2].value)
+useCountUp(computed(() => statRefs.value[3]), stats[3].value)
 
 const heroSlides = [
   {

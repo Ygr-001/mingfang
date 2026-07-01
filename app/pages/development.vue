@@ -12,17 +12,21 @@
       </div>
     </section>
 
-    <section class="py-16 md:py-24">
+    <section class="py-16 md:py-24 section-bg-mesh-eco">
       <div class="container-custom max-w-5xl">
-        <div class="text-center max-w-3xl mx-auto mb-14">
-          <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+        <div class="section-heading">
+          <span class="section-eyebrow-eco">Sustainability</span>
+          <h2 class="section-title mt-3">可持续发展</h2>
+          <p class="section-subtitle text-sm md:text-base">绿色制造 · 环保再生 · 功能性纱线</p>
+          <p class="text-gray-600 leading-relaxed text-sm md:text-base mt-4 max-w-3xl">
             明芳线业致力于环保制造，从可再生纱线到功能性特殊线，践行可持续发展理念。公司拥有独立排污许可证，集生产、染色、运输于一体，实现全产业链环保管控。
           </p>
         </div>
 
         <div ref="gridEl" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-14 products-grid" :class="{ 'is-visible': gridVisible }">
           <div v-for="(p, idx) in ecoProducts" :key="p.name"
-            class="product-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col group"
+            class="lift-card product-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col group"
+            :style="{ animationDelay: idx * 0.08 + 's' }">
             :style="{ animationDelay: idx * 0.08 + 's' }">
             <!-- 图片 - 点击查看大图 -->
             <div class="aspect-[3/2] overflow-hidden relative cursor-pointer" @click.stop="openImage(p.img)">

@@ -12,11 +12,16 @@
       </div>
     </section>
 
-    <section class="py-16 md:py-24 bg-gray-50">
+    <section class="py-16 md:py-24 section-bg-mesh">
       <div class="container-custom">
+        <div class="section-heading">
+          <span class="section-eyebrow">Our Products</span>
+          <h2 class="section-title mt-3">产品中心</h2>
+          <p class="section-subtitle text-sm md:text-base">10大产品系列 · 点击图片查看大图 · 点击卡片查看详情</p>
+        </div>
         <div ref="gridEl" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 products-grid" :class="{ 'is-visible': gridVisible }">
           <div v-for="(p, idx) in products" :key="p.name"
-            class="product-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col group"
+            class="lift-card product-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col group"
             :style="{ animationDelay: idx * 0.08 + 's' }">
             <!-- 图片 - 点击查看大图 -->
             <div class="aspect-[3/2] overflow-hidden relative cursor-pointer" @click.stop="openImage(p.img)">

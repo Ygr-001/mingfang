@@ -12,13 +12,13 @@
       </div>
     </section>
 
-    <section class="py-16 md:py-24">
+    <section class="py-16 md:py-24 section-bg-mesh">
       <div class="container-custom max-w-5xl">
         <!-- 联系方式 - 单列居中布局 -->
         <div ref="contactEl" class="reveal-section" :class="{ 'is-visible': contactVisible }">
           <!-- 区块标题 -->
-          <div class="text-center mb-12">
-            <span class="text-primary font-semibold tracking-widest text-xs uppercase">Get In Touch</span>
+          <div class="section-heading">
+            <span class="section-eyebrow">Get In Touch</span>
             <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mt-3 mb-3">联系方式</h2>
             <p class="text-gray-500 text-sm max-w-2xl mx-auto">您可以通过以下任意方式联系我们，我们将在 24 小时内回复您的咨询</p>
           </div>
@@ -26,7 +26,7 @@
           <!-- 联系方式卡片网格 -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
             <!-- 生产基地 -->
-            <div class="contact-card group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl border border-gray-100 hover:border-primary/30 transition-all duration-500">
+            <div class="lift-card contact-card group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl border border-gray-100 hover:border-primary/30 transition-all duration-500">
               <div class="flex items-start gap-4">
                 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
                   <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -42,7 +42,7 @@
             </div>
 
             <!-- 邮箱 -->
-            <div class="contact-card group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl border border-gray-100 hover:border-primary/30 transition-all duration-500">
+            <div class="lift-card contact-card group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl border border-gray-100 hover:border-primary/30 transition-all duration-500">
               <div class="flex items-start gap-4">
                 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
                   <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">

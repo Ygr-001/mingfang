@@ -16,8 +16,11 @@
     <!-- 发展历程 -->
     <section id="history" class="py-16 md:py-24 bg-gradient-to-b from-white to-blue-50/50">
       <div class="container-custom max-w-6xl">
-        <h2 class="section-title">发展历程</h2>
-        <p class="section-subtitle text-sm md:text-base">从1997年至今，明芳线业不断发展壮大</p>
+        <div class="section-heading">
+          <span class="section-eyebrow">Our Milestones</span>
+          <h2 class="section-title mt-3">发展历程</h2>
+          <p class="section-subtitle text-sm md:text-base">从1997年至今，明芳线业不断发展壮大</p>
+        </div>
 
         <!-- 横向时间线 -->
         <div class="mt-16 relative">
@@ -48,10 +51,13 @@
     </section>
 
     <!-- 染坊与实验室 -->
-    <section id="workshop" class="py-16 md:py-24 bg-gray-50">
+    <section id="workshop" class="py-16 md:py-24 section-bg-mesh">
       <div class="container-custom max-w-5xl">
-        <h2 class="section-title">染坊与实验室</h2>
-        <p class="section-subtitle text-sm md:text-base">先进的染整设备与完善的检测体系，保障每一根纱线的品质</p>
+        <div class="section-heading">
+          <span class="section-eyebrow">Workshop & Lab</span>
+          <h2 class="section-title mt-3">染坊与实验室</h2>
+          <p class="section-subtitle text-sm md:text-base">先进的染整设备与完善的检测体系，保障每一根纱线的品质</p>
+        </div>
         <div class="grid gap-8 mt-10">
           <!-- 生产车间 -->
           <div class="bg-white rounded-2xl overflow-hidden shadow-sm reveal-section workshop-card">
@@ -170,10 +176,13 @@
     </section>
 
     <!-- 安全认证 - 点击查看大图 -->
-    <section id="certs" class="py-16 md:py-24">
+    <section id="certs" class="py-16 md:py-24 section-bg-mesh">
       <div class="container-custom max-w-6xl">
-        <h2 class="section-title">安全认证</h2>
-        <p class="section-subtitle text-sm md:text-base">通过多项国际权威检测认证，产品符合婴儿一级安全标准（点击图片查看大图）</p>
+        <div class="section-heading">
+          <span class="section-eyebrow">Safety Certification</span>
+          <h2 class="section-title mt-3">安全认证</h2>
+          <p class="section-subtitle text-sm md:text-base">通过多项国际权威检测认证，产品符合婴儿一级安全标准（点击图片查看大图）</p>
+        </div>
         <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-10">
           <div v-for="cert in certItems" :key="cert.name"
             class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow cursor-pointer"

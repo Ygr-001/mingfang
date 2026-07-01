@@ -1,3 +1,6 @@
+/* 思源黑体 - 企业级中文字体, Google Fonts CDN */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Inter:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,6 +11,14 @@
   }
   body {
     @apply text-gray-800 antialiased;
+    font-family: "Noto Sans SC", "Inter", system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-feature-settings: "tnum" 1, "kern" 1;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Noto Sans SC", "Inter", system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
   }
 }
 
@@ -170,4 +181,192 @@
 @keyframes pageTagIn {
   0% { opacity: 0; transform: translateX(-15px); }
   100% { opacity: 1; transform: translateX(0); }
+}
+
+/* === 企业级全局装饰类 === */
+
+/* 英文 eyebrow 小标签:蓝线 + 间距 + 字母间距 */
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #1a56db;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+.section-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 2px;
+  background: linear-gradient(90deg, #1a56db, #3b82f6);
+  border-radius: 2px;
+}
+
+/* 绿色版 eyebrow (development 页用) */
+.section-eyebrow-eco {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #059669;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+.section-eyebrow-eco::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 2px;
+  background: linear-gradient(90deg, #059669, #10b981);
+  border-radius: 2px;
+}
+
+/* 居中容器,用于 section heading */
+.section-heading {
+  text-align: center;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3rem;
+}
+.section-heading .section-eyebrow,
+.section-heading .section-eyebrow-eco {
+  justify-content: center;
+}
+
+/* 蓝/绿色 section 背景 - 双光晕径向渐变 */
+.section-bg-mesh {
+  position: relative;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #eff6ff 100%);
+  overflow: hidden;
+}
+.section-bg-mesh::before,
+.section-bg-mesh::after {
+  content: '';
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+.section-bg-mesh::before {
+  top: -120px;
+  left: -120px;
+  background: radial-gradient(circle, #dbeafe 0%, transparent 70%);
+}
+.section-bg-mesh::after {
+  bottom: -120px;
+  right: -120px;
+  background: radial-gradient(circle, #e0e7ff 0%, transparent 70%);
+}
+.section-bg-mesh > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* 绿调 mesh (development 页用) */
+.section-bg-mesh-eco {
+  position: relative;
+  background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 50%, #ecfdf5 100%);
+  overflow: hidden;
+}
+.section-bg-mesh-eco::before,
+.section-bg-mesh-eco::after {
+  content: '';
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+.section-bg-mesh-eco::before {
+  top: -120px;
+  left: -120px;
+  background: radial-gradient(circle, #d1fae5 0%, transparent 70%);
+}
+.section-bg-mesh-eco::after {
+  bottom: -120px;
+  right: -120px;
+  background: radial-gradient(circle, #a7f3d0 0%, transparent 70%);
+}
+.section-bg-mesh-eco > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* 细网格背景 (企业感) */
+.section-bg-grid {
+  background-image:
+    linear-gradient(rgba(26, 86, 219, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 86, 219, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* section 之间的细分隔线(蓝菱形 + 渐隐横线) */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.5rem 0;
+}
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #1a56db, transparent);
+  opacity: 0.5;
+}
+.section-divider span {
+  width: 6px;
+  height: 6px;
+  background: #1a56db;
+  transform: rotate(45deg);
+  box-shadow: 0 0 8px rgba(26, 86, 219, 0.5);
+}
+
+/* 数字墙配套 */
+.stat-card-num {
+  font-family: "Inter", "Noto Sans SC", sans-serif;
+  font-size: 1.875rem;
+  font-weight: 900;
+  color: #1a56db;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+@media (min-width: 768px) {
+  .stat-card-num { font-size: 2.25rem; }
+}
+
+/* 数字 count-up 完成后的轻量 pop */
+.is-counted {
+  animation: countUpPop 0.4s 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes countUpPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* 卡片 hover 强化(企业级边框变色) */
+.lift-card {
+  border: 1px solid transparent;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.lift-card:hover {
+  border-color: rgba(26, 86, 219, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -10px rgba(26, 86, 219, 0.15);
 }
