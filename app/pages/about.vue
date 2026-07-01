@@ -64,34 +64,35 @@
             </div>
           </div>
 
-          <!-- 染坊 -->
+          <!-- 染坊 - 合并主图与扩展图 -->
           <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
-            <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab5.webp" alt="染坊" class="w-full object-cover" style="max-height:400px"  loading="lazy">
+            <!-- 主图 -->
+            <div class="overflow-hidden">
+              <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab5.webp" alt="染坊主图" class="w-full object-cover hover:scale-105 transition-transform duration-700" style="max-height:480px"  loading="lazy">
+            </div>
+            <!-- 扩展图: 3 张并排 -->
+            <div class="grid grid-cols-3 gap-1">
+              <div class="overflow-hidden">
+                <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab6.webp" alt="大染色机内部" class="w-full h-32 md:h-40 object-cover hover:scale-110 transition-transform duration-500"  loading="lazy">
+              </div>
+              <div class="overflow-hidden">
+                <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab7.webp" alt="染色车间全景" class="w-full h-32 md:h-40 object-cover hover:scale-110 transition-transform duration-500"  loading="lazy">
+              </div>
+              <div class="overflow-hidden">
+                <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab8.webp" alt="大型染色机" class="w-full h-32 md:h-40 object-cover hover:scale-110 transition-transform duration-500"  loading="lazy">
+              </div>
+            </div>
+            <!-- 文字描述 -->
             <div class="p-6 md:p-8">
-              <h3 class="font-bold text-xl text-gray-900 mb-2">染坊</h3>
-              <p class="text-sm text-gray-500 leading-relaxed">
-                拥有设备1 Kg-1000Kg 不同型号染色机 40 余台，满足大量生产需求。从打样到大货染色，快速响应客户颜色需求，确保每批次颜色一致性。
+              <div class="flex items-center gap-3 mb-3">
+                <h3 class="font-bold text-xl text-gray-900">染坊</h3>
+                <span class="px-2 py-0.5 bg-primary-50 text-primary text-xs rounded-full font-medium">40+ 染色机</span>
+              </div>
+              <p class="text-sm text-gray-500 leading-relaxed mb-3">
+                拥有设备 <strong class="text-gray-900">1 Kg-1000Kg</strong> 不同型号染色机 40 余台，满足大量生产需求。从打样小缸到 1 吨级大缸，覆盖全规格染色需求。
               </p>
-            </div>
-          </div>
-
-          <!-- 染坊扩展 - 染色机特写 + 车间全景 -->
-          <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-1">
-              <div class="overflow-hidden">
-                <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab6.webp" alt="大染色机内部 - 白色纱线线轴" class="w-full h-72 md:h-80 object-cover hover:scale-105 transition-transform duration-500"  loading="lazy">
-              </div>
-              <div class="overflow-hidden">
-                <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab7.webp" alt="染色机内部特写 + 车间全景" class="w-full h-72 md:h-80 object-cover hover:scale-105 transition-transform duration-500"  loading="lazy">
-              </div>
-              <div class="overflow-hidden">
-                <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab8.webp" alt="染坊车间多台染缸 + 大型染色机" class="w-full h-72 md:h-80 object-cover hover:scale-105 transition-transform duration-500"  loading="lazy">
-              </div>
-            </div>
-            <div class="p-6 md:p-8">
-              <h3 class="font-bold text-xl text-gray-900 mb-2">染坊扩展</h3>
               <p class="text-sm text-gray-500 leading-relaxed">
-                从打样小缸到 1 吨级大缸，覆盖全规格染色需求。多台染色机并线运行，可同时处理多批次颜色，确保大货交期。
+                多台染色机并线运行，可同时处理多批次颜色。从打样到大货染色，快速响应客户颜色需求，确保每批次颜色一致性，按时交付。
               </p>
             </div>
           </div>
@@ -111,11 +112,16 @@
 
           <!-- 质检室 -->
           <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
-            <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab2.webp" alt="质检室" class="w-full object-cover" style="max-height:400px"  loading="lazy">
+            <div class="overflow-hidden bg-gray-50">
+              <img src="https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/lab/lab2.webp" alt="质检室" class="w-full h-64 md:h-80 lg:h-96 object-contain hover:scale-105 transition-transform duration-700"  loading="lazy">
+            </div>
             <div class="p-6 md:p-8">
-              <h3 class="font-bold text-xl text-gray-900 mb-2">质检室</h3>
+              <div class="flex items-center gap-3 mb-2">
+                <h3 class="font-bold text-xl text-gray-900">质检室</h3>
+                <span class="px-2 py-0.5 bg-primary-50 text-primary text-xs rounded-full font-medium">全项检测</span>
+              </div>
               <p class="text-sm text-gray-500 leading-relaxed">
-                质检室拥有拉力、粗细度、色牢度等一系列检测设备来保证产品质量。每批产品出厂前都经过严格质检，不合格产品绝不流入市场。
+                质检室拥有拉力、粗细度、色牢度、耐磨、耐高温等一系列检测设备来保证产品质量。每批产品出厂前都经过严格质检，不合格产品绝不流入市场。
               </p>
             </div>
           </div>

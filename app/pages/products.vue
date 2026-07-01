@@ -144,16 +144,16 @@ function openImage(img: string) {
 
 const products = [
   {
-    name: '涤纶蓬松线', en: 'Textured Polyester', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod11.webp',
-    desc: '覆盖效果佳、强力性好、手感柔软光滑、耐化学性强、颜色选择广泛。适用于内衣、泳衣、针织品、家纺和童装。符合OEKO-TEX标准100认证。',
-    features: ['覆盖效果佳', '强力性好', '手感柔软', '耐化学性', '颜色选择广泛'],
-    apps: ['内衣', '泳衣', '女士内衣', '针织品', '家纺', '童装'],
-    cert: 'OEKO-TEX Standard 100 认证',
+    name: '高延伸长丝线', en: 'Eloflex', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod11.webp',
+    desc: '延伸度高、润滑度高，适用于需要弹性和舒适度的产品。适用于紧身裤、泳衣、女士内衣和运动服饰。',
+    features: ['延伸度高', '润滑度高'],
+    apps: ['紧身裤', '泳衣', '女士内衣', '运动服饰'],
+    cert: '',
     specHeaders: ['Tex No.', 'Ticket No.'],
-    specs: [['Tex 10', 'Ticket 220'], ['Tex 18', 'Ticket 160'], ['Tex 21', 'Ticket 140'], ['Tex 35', 'Ticket 80'], ['Tex 70', 'Ticket 60']],
+    specs: [['Tex 27', 'Ticket 120']],
   },
   {
-    name: '涤纶包芯', en: 'Polyester Wrap', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod02.webp',
+    name: '聚酯包芯线', en: 'Polyester Wrap', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod02.webp',
     desc: '绝佳的相对强度、耐磨性高、耐化学性。强力缝口外观美观、避免跳针、生产效率高。色牢度高、颜色选择广泛，适用于高速缝纫。',
     features: ['绝佳强度', '耐磨性高', '缝口平滑', '避免跳针', '色牢度高'],
     apps: ['服装', '家纺', '皮革制品', '工业缝纫'],
@@ -198,7 +198,7 @@ const products = [
     specs: [['Tex 45', '210D/2', '22.9', '26-36'], ['Tex 70', '210D/3', '23.8', '25-35'], ['Tex 90', '280D/3', '25.6', '25-35'], ['Tex 135', '420D/3', '28.8', '25-34'], ['Tex 210', '630D/3', '211.2', '24-33']],
   },
   {
-    name: '涤纶短纤', en: 'Staple Spun Polyester', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod01.webp',
+    name: '涤纶短纤蓬松线', en: 'Textured Polyester', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod01.webp',
     desc: '耐磨性高、强力缝口外观美观、耐化学性。缝口平滑、避免跳针、生产效率高。色牢度高，适用于高速缝纫。颜色选择广泛。',
     features: ['耐磨性高', '色牢度高', '缝口平滑', '避免跳针', '高速缝纫'],
     apps: ['各类服装', '家纺', '鞋帽', '工业用线'],
@@ -207,7 +207,7 @@ const products = [
     specs: [['Tex 18', 'Ticket 180', '602'], ['Tex 21', 'Ticket 140', '803'], ['Tex 27', 'Ticket 120', '603'], ['Tex 40', 'Ticket 80', '302'], ['Tex 60', 'Ticket 50', '604']],
   },
   {
-    name: '高膨体涤纶线', en: 'High Bulk Textured Polyester', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod12.webp',
+    name: '涤纶柔软蓬松线', en: 'High Bulk Textured Polyester', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod12.webp',
     desc: '覆盖效果佳、强力性好、接缝轻。手感柔软、抗化学性强、颜色选择广泛。适用于婴儿服饰、内衣、防晒衣和女士内衣。',
     features: ['覆盖效果佳', '强力性好', '手感柔软', '抗化学性'],
     apps: ['婴儿服饰', '内衣', '防晒衣', '女士内衣'],
@@ -216,13 +216,13 @@ const products = [
     specs: [['Tex 18', 'Ticket 160'], ['Tex 21', 'Ticket 140']],
   },
   {
-    name: '高延伸长丝线', en: 'Eloflex', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod14.webp',
-    desc: '延伸度高、润滑度高，适用于需要弹性和舒适度的产品。适用于紧身裤、泳衣、女士内衣和运动服饰。',
-    features: ['延伸度高', '润滑度高'],
-    apps: ['紧身裤', '泳衣', '女士内衣', '运动服饰'],
+    name: '涤纶短纤线', en: 'Staple Spun Polyester', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod14.webp',
+    desc: '耐磨性高、强力缝口外观美观、耐化学性。缝口平滑、避免跳针、生产效率高。色牢度高，适用于高速缝纫。颜色选择广泛。',
+    features: ['耐磨性高', '色牢度高', '缝口平滑', '避免跳针', '高速缝纫'],
+    apps: ['各类服装', '家纺', '鞋帽', '工业用线'],
     cert: '',
-    specHeaders: ['Tex No.', 'Ticket No.'],
-    specs: [['Tex 27', 'Ticket 120']],
+    specHeaders: ['Tex No.', 'Ticket No.', '本地号'],
+    specs: [['Tex 18', 'Ticket 180', '602'], ['Tex 21', 'Ticket 140', '803'], ['Tex 27', 'Ticket 120', '603'], ['Tex 40', 'Ticket 80', '302'], ['Tex 60', 'Ticket 50', '604']],
   },
   {
     name: '尼龙弹力线', en: 'Elastic Nylon', img: 'https://cdn.jsdelivr.net/gh/Ygr-001/mingfang@main/public/images/webp/products/prod16.webp',
